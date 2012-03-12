@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-ICA::Application.config.secret_token = 'c9724e62f9cb4013454467a431fc2384ef09aa8d02a522e9946a687a3d1a189d176b8f10e477c04e1488f9d4ce8ddd8de336c82143720714d2f133421ee61279'
+ICA::Application.config.secret_token = 'f48c249436e68b038f970c8755b537f96bb48b1fa373a83999adb14f0796534e9cb28b8eb608575d0a60a587d83c907b12ecf69ed84546cc583e06e79b9cdfc8'
