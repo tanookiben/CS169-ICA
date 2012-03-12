@@ -23,7 +23,6 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
-end
 
 gem 'jquery-rails'
 
