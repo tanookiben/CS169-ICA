@@ -22,6 +22,9 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
+  gem 'rspec-rails'
+  gem 'simplecov'
+  gem 'autotest'
 end
 
 group :production do
