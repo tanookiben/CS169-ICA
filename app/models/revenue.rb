@@ -1,0 +1,3 @@
+class Revenue < ActiveRecord::Base
+  belongs_to :contact
+end
