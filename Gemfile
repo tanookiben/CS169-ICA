@@ -25,6 +25,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'autotest'
+  gem 'factory_girl'
 end
 
 group :production do
