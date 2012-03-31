@@ -27,9 +27,7 @@ class Person < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('first_name LIKE ?', "%#{search}%")
-    else
-      nil
+      where('first_name LIKE ? OR last_name LIKE ? OR occupation LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     end
   end
 end
