@@ -1,4 +1,5 @@
 ICA::Application.routes.draw do
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,8 +13,11 @@ ICA::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  match 'stakeholders/logged_in' => 'stakeholders#logged_in', :as => :logged_in, :via => :get
-  resources :stakeholders
+  resources :contacts do
+#    collection do
+#      get 'search'
+#    end
+  end
   
   # Sample resource route with options:
   #   resources :products do
@@ -50,7 +54,7 @@ ICA::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'contacts#index'
 
   # See how all your routes lay out with "rake routes"
 
