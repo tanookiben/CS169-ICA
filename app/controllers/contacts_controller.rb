@@ -5,11 +5,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    term = params[:term]
-    @people = Person.find_all_by_first_name(term)
+    @person = Person.find(params[:id])
   end
 
-  def search
-    @people = Person.search(params[:search])
-  end
 end

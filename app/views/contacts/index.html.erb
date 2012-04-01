@@ -1,7 +1,8 @@
 <div class="content">
-  <% if @search %>
+<% if @search %>
   <h1>Searching for "<%= @search %>"</h1>
-  <h3>People</h3>
+  <h2>People <%= link_to 'New Person', new_contact_path, :class => 'btn' %></h2>
+<!--  <h2>People <a class="btn" href=new_contact_path>New Person</a></h2> -->
   <table class="table table-striped">
     <thead>
       <tr>
@@ -9,24 +10,26 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Occupation</th>
+        <th>Phone Number</th>
       </tr>
     </thead>
     <tbody>
     <% @people.each_with_index do |person, index| %>
       <tr>
         <td><%= index+1 %></td>
-        <td><%= person.first_name %></td>
+        <td><%= link_to person.first_name, contact_path(person.id) %></td>
         <td><%= person.last_name %></td>
         <td><%= person.occupation %></td>
+        <td><%= person.phone_numbers.first.label + ': ' + person.phone_numbers.first.info %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
-  <% else %>
+<% else %>
  	<h1>Welcome!</h1>
 	<p>Some kind of welcome message that briefly explains how to use the CRM</p>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <% end %>
+<% end %>
 </div><!-- .content -->
 <div class="footer">
   Footer message

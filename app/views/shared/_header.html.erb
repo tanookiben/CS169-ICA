@@ -1,14 +1,14 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="brand" href="/contacts">Inner City Advisors</a>
-      <form class="navbar-search" action="/contacts" method="get">
-        <input type="text" class="search-query span3" name="search" placeholder="Search" />
-      </form>
-      <ul class="nav pull-right">
-        <li><a href="#">About</a></li>
-        <li class="divider-vertical"></li>
-        <li><a href="#">Log In</a></li>
+<div class='navbar'>
+  <div class='navbar-inner'>
+    <div class='container'>
+      <a class='brand' href='/'>Inner City Advisors</a>
+      <%= form_tag contacts_path, :method => :get, :class => 'navbar-search' do %>
+        <%= text_field_tag 'search', nil,  :class => 'search-query span3', :placeholder => 'Search' %>
+      <% end %>
+      <ul class='nav pull-right'>
+        <li><a href='#'>About</a></li>
+        <li class='divider-vertical'></li>
+        <li><a href='#'>Log In</a></li>
       </ul>
     </div><!-- .container -->
   </div><!-- .navbar-inner -->
