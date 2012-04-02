@@ -1,2 +1,5 @@
-<h1><%= @person.first_name + ' ' + @person.last_name %></h2>
+<h1><%= @person.full_name %></h2>
+<h3>Occupation: <%= @person.occupation %></h3>
+<h3>Phone Number: <%= @person.phone_numbers.first ? @person.phone_numbers.first.info : nil %></h3>
+<%= link_to 'Edit', edit_person_path(@id), :class => 'btn' %>
 <%= link_to 'Delete', person_path(@id), :method => :delete, :confirm => 'Are you sure?', :class => 'btn' %>

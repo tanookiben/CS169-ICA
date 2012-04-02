@@ -1,0 +1,27 @@
+<h1>Edit <%= @person.full_name %></h1>
+
+<%= form_for @person, :html => {:class => 'form-horizontal'} do |p| %>
+  <div class='control-group'>
+    <%= p.label :first_name, :class => 'control-label' %>
+    <div class='controls'>
+      <%= p.text_field :first_name %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= p.label :last_name, :class => 'control-label' %>
+    <div class='controls'>
+      <%= p.text_field :last_name %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= p.label :occupation, :class => 'control-label' %>
+    <div class='controls'>
+      <%= p.text_field :occupation %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <div class='controls'>
+      <%= p.submit 'Update' , :class => 'btn' %>
+    </div>
+  </div>
+<% end %>
