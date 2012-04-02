@@ -4,8 +4,7 @@ class PeopleController < ApplicationController
     @people = Person.search(@search)
   end
 
-  def show
-    @person = Person.find(params[:id])
+  def create
   end
 
   def new
@@ -14,5 +13,20 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.create()
+  end
+
+  def show
+    @id = params[:id]
+    @person = Person.find(@id)
+  end
+
+  def update
+  end
+
+  def destroy
+    @person = Person.find(params[:id])
+    @person.destroy
+    flash[:notice] = "Person '#{@person.first_name + ' ' + @person.last_name}' deleted."
+    redirect_to people_path
   end
 end
