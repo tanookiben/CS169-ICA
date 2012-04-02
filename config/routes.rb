@@ -13,7 +13,7 @@ ICA::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :contacts do
+  resources :people do
 #    collection do
 #      get 'search'
 #    end
@@ -54,7 +54,7 @@ ICA::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'contacts#index'
+   root :to => 'people#index'
 
   # See how all your routes lay out with "rake routes"
 
