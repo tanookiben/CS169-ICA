@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+
   def index
     @search = params[:search]
     @people = Person.search(@search)
@@ -18,21 +19,19 @@ class PeopleController < ApplicationController
   end
 
   def edit
-    @id = params[:id]
-    @person = Person.find(@id)
+    @person = Person.find(params[:id])
   end
 
   def show
-    @id = params[:id]
-    @person = Person.find(@id)
+    @person = Person.find(params[:id])
   end
 
   def update
-    @id = params[:id]
-    @person = Person.find(@id)
+    id = params[:id]
+    @person = Person.find(id)
     @person.update_attributes!(params[:person])
     flash[:notice] = "#{@person.full_name} was successfully updated."
-    redirect_to person_path(@id)
+    redirect_to person_path(id)
   end
 
   def destroy

@@ -28,7 +28,7 @@
     <% @people.each_with_index do |person, index| %>
       <tr>
         <td><%= index+1 %></td>
-        <td><%= link_to person.first_name, person_path(person.id) %></td>
+        <td><%= link_to person.first_name, person_path(person) %></td>
         <td><%= person.last_name %></td>
         <td><%= person.occupation %></td>
         <td>
