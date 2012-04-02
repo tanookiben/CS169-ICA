@@ -1,8 +1,7 @@
 <div class="content">
 <% if @search %>
   <h1>Searching for "<%= @search %>"</h1>
-  <h2>People <%= link_to 'New Person', new_contact_path, :class => 'btn' %></h2>
-<!--  <h2>People <a class="btn" href=new_contact_path>New Person</a></h2> -->
+  <h2>People <%= link_to 'New Person', new_person_path, :class => 'btn' %></h2>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -17,7 +16,7 @@
     <% @people.each_with_index do |person, index| %>
       <tr>
         <td><%= index+1 %></td>
-        <td><%= link_to person.first_name, contact_path(person.id) %></td>
+        <td><%= link_to person.first_name, person_path(person.id) %></td>
         <td><%= person.last_name %></td>
         <td><%= person.occupation %></td>
         <td><%= person.phone_numbers.first.label + ': ' + person.phone_numbers.first.info %></td>

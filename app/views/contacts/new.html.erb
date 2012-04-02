@@ -1,6 +1,0 @@
-<h1>Create a new contact</h1>
-
-<%= form_tag contacts_path, :method => 'post', :class => 'form_horizontal' do %>
-  <%= label_tag :first_name, 'First Name:' %><%= text_field_tag :first_name %>
-  <%= submit_tag "Create" %>
-<% end %>

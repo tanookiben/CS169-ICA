@@ -1,0 +1,27 @@
+<h1>Create a new contact</h1>
+
+<%= form_for @person do |p| %> <!--contacts_path, :method => 'post', :class => 'form-horizontal' do %> -->
+  <div class='control-group'>
+    <%= p.label :first_name, :class => 'control-label' %>
+    <div class='controls'>
+      <%= p.text_field :first_name %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= p.label :last_name, :class => 'control-label' %>
+    <div class='controls'>
+      <%= p.text_field :last_name %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= p.label :occupation, :class => 'control-label' %>
+    <div class='controls'>
+      <%= p.text_field :occupation %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <div class='controls'>
+      <%= p.submit %>
+    </div>
+  </div>
+<% end %>

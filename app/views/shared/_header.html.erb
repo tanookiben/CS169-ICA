@@ -2,7 +2,7 @@
   <div class='navbar-inner'>
     <div class='container'>
       <a class='brand' href='/'>Inner City Advisors</a>
-      <%= form_tag contacts_path, :method => :get, :class => 'navbar-search' do %>
+      <%= form_tag people_path, :method => :get, :class => 'navbar-search' do %>
         <%= text_field_tag 'search', nil,  :class => 'search-query span3', :placeholder => 'Search' %>
       <% end %>
       <ul class='nav pull-right'>
