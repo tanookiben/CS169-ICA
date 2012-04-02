@@ -5,14 +5,21 @@ class PeopleController < ApplicationController
   end
 
   def create
+    if @person = Person.create(params[:person])
+      flash[:notice] = "#{@person.full_name} was successfully created."
+    else
+      flash[:error] = "#{@person.full_name} was unable to be created."
+    end
+    redirect_to people_path
   end
 
   def new
-    @person = Person.create
+    @person = Person.new
   end
 
   def edit
-    @person = Person.create()
+    @id = params[:id]
+    @person = Person.find(@id)
   end
 
   def show
@@ -21,12 +28,17 @@ class PeopleController < ApplicationController
   end
 
   def update
+    @id = params[:id]
+    @person = Person.find(@id)
+    @person.update_attributes!(params[:person])
+    flash[:notice] = "#{@person.full_name} was successfully updated."
+    redirect_to person_path(@id)
   end
 
   def destroy
     @person = Person.find(params[:id])
     @person.destroy
-    flash[:notice] = "Person '#{@person.first_name + ' ' + @person.last_name}' deleted."
+    flash[:notice] = "Person '#{@person.full_name}' deleted."
     redirect_to people_path
   end
 end

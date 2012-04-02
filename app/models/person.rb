@@ -9,6 +9,10 @@ class Person < ActiveRecord::Base
   validates_presence_of :last_name
   validates_presence_of :occupation
 
+  def full_name
+    self.first_name + ' ' + self.last_name
+  end
+
   def add_phone_number(label, number)
     self.phone_numbers.create(:label => label, :info => number)
   end

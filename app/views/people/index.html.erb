@@ -1,4 +1,16 @@
 <div class="content">
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <a class="close" data-dismiss="alert">x</a>
+    <strong>Success!</strong> <%= flash[:notice] %>
+  </div>
+<% end %>
+<% if flash[:error] %>
+  <div class="alert alert-error">
+    <a class="close" data-dismiss="alert">x</a>
+    <strong>Error!</strong> <%= flash[:error] %>
+  </div>
+<% end %>
 <% if @search %>
   <h1>Searching for "<%= @search %>"</h1>
   <h2>People <%= link_to 'New Person', new_person_path, :class => 'btn' %></h2>
@@ -19,15 +31,18 @@
         <td><%= link_to person.first_name, person_path(person.id) %></td>
         <td><%= person.last_name %></td>
         <td><%= person.occupation %></td>
-        <td><%= person.phone_numbers.first.label + ': ' + person.phone_numbers.first.info %></td>
+        <td>
+        <% if person.phone_numbers.first %>
+          <%= person.phone_numbers.first.label + ': ' + person.phone_numbers.first.info %></td>
+        <% end %>
       </tr>
     <% end %>
     </tbody>
   </table>
 <% else %>
  	<h1>Welcome!</h1>
-	<p>Some kind of welcome message that briefly explains how to use the CRM</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Search for contacts by either first name, last name, or occupation above.</p>
+  <p>Or create a new person by clicking <%= link_to 'here', new_person_path %></p>
 <% end %>
 </div><!-- .content -->
 <div class="footer">
