@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ContactController do
+describe PeopleController do
 
   describe "GET 'index'" do
     it "returns http success" do
