@@ -2,7 +2,9 @@ class PeopleController < ApplicationController
 
   def index
     @search = params[:search]
-    @people = Person.search(@search)
+    @individuals = Individual.search(@search)
+    @board_members = BoardMember.search(@search)
+    @advisors = Advisor.search(@search)
   end
 
   def create
@@ -29,7 +31,11 @@ class PeopleController < ApplicationController
   def update
     id = params[:id]
     @person = Person.find(id)
-    @person.update_attributes!(params[:person])
+    updated_values = params[:"#{@person.type.underscore}"]
+    # Type is separately updated because, as a STI specific property, it cannot
+    # be mass-assigned with update_attributes. Order of update is also important
+    @person.update_attributes!(updated_values.except(:type))
+    @person.update_attribute(:type, updated_values[:type])
     flash[:notice] = "#{@person.full_name} was successfully updated."
     redirect_to person_path(id)
   end
