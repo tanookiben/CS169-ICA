@@ -13,38 +13,15 @@
 <% end %>
 <% if @search %>
   <h1>Searching for "<%= @search %>"</h1>
-  <h2>People <%= link_to 'New Person', new_person_path, :class => 'btn' %></h2>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Occupation</th>
-        <th>Phone Number</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @people.each_with_index do |person, index| %>
-      <tr>
-        <td><%= index+1 %></td>
-        <td><%= link_to person.first_name, person_path(person) %></td>
-        <td><%= person.last_name %></td>
-        <td><%= person.occupation %></td>
-        <td>
-        <% if person.phone_numbers.first %>
-          <%= person.phone_numbers.first.label + ': ' + person.phone_numbers.first.info %></td>
-        <% end %>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+  <h3>Individuals <%= link_to 'New Individual', new_person_path, :class => 'btn' %></h3>
+  <%= render :partial => "people_table", :locals => { :people => @individuals } %>
+  <h3>Board Members <%= link_to 'New Board Member', new_person_path, :class => 'btn' %></h3>
+  <%= render :partial => 'people_table', :locals => { :people => @board_members } %>
+  <h3>Advisors <%= link_to 'New Advisor', new_person_path, :class => 'btn' %></h3>
+  <%= render :partial => 'people_table', :locals => { :people => @advisors } %>
 <% else %>
  	<h1>Welcome!</h1>
 	<p>Search for contacts by either first name, last name, or occupation above.</p>
   <p>Or create a new person by clicking <%= link_to 'here', new_person_path %></p>
 <% end %>
 </div><!-- .content -->
-<div class="footer">
-  Footer message
-</div><!-- .footer-->

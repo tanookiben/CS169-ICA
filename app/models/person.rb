@@ -36,11 +36,3 @@ class Person < ActiveRecord::Base
   end
 end
 
-class Individual < Person
-end
-
-class BoardMember < Person
-end
-
-class Advisor < Person
-end
