@@ -37,6 +37,9 @@ ADVISORS = [
   {:first_name => 'Nathan', :last_name => 'Cortes', :occupation => 'Wildlife Veterinarian'}
 ]
 
+PHONE_LABELS = ['Mobile','Home','Business']
+PHONE_NUMBER_GENERATOR = Random.new
+
 INDIVIDUALS.each do |i|
   Individual.create(i)
 end
@@ -47,4 +50,8 @@ end
 
 ADVISORS.each do |a|
   Advisor.create(a)
+end
+
+Person.find(:all).each do |p|
+  p.phone_numbers.create(:label => PHONE_LABELS[rand(3)], :info => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
 end
