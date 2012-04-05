@@ -2,6 +2,9 @@ class Person < ActiveRecord::Base
   has_many :phone_numbers, :as => :contactable, :class_name => 'PhoneNumber'
   has_many :physical_addresses, :as => :contactable, :class_name => 'PhysicalAddress'
   has_many :email_addresses, :as => :contactable, :class_name => 'EmailAddress'
+  accepts_nested_attributes_for :phone_numbers, :allow_destroy => true
+  accepts_nested_attributes_for :physical_addresses, :allow_destroy => true
+  accepts_nested_attributes_for :email_addresses, :allow_destroy => true
 
   has_many :notes, :as => :notable, :class_name => 'Note'
 

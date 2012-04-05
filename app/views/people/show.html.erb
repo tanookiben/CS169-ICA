@@ -1,13 +1,10 @@
 <h1><%= @person.full_name %></h2>
 <h3>Occupation: <%= @person.occupation %></h3>
 <dl>
-<%= render :partial => 'show_contact_information', :locals => { :person => @person, :contact_information => 'phone_numbers' } %>
+<%#= render :partial => 'show_contact_information', :locals => { :person => @person, :contact_information => 'phone_numbers' } %>
 <%= render :partial => 'show_phone_numbers', :locals => { :person => @person, :contact_information => 'phone_number' } %>
 <%= render :partial => 'show_email_addresses', :locals => { :person => @person } %>
 <%= render :partial => 'show_physical_addresses', :locals => { :person => @person } %>
 </dl>
-<!--<h3>Phone Number: <%#= @person.phone_numbers.first ? @person.phone_numbers.first.info : nil %></h3>
-<h3>Mailing Address: <%#= @person.physical_addresses.first ? "foo" : "bar"%></h3>
-<h3>Email Address: <%#= @person.email_addresses.first ? @person.email_addresses.first.info : nil %></h3> -->
 <%= link_to 'Edit', edit_person_path(@person), :class => 'btn' %>
 <%= link_to 'Delete', person_path(@person), :method => :delete, :confirm => 'Are you sure?', :class => 'btn' %>
