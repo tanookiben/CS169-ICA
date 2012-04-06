@@ -8,7 +8,8 @@ class PeopleController < ApplicationController
   end
 
   def create
-    if @person = Person.create(params[:person])
+    @person = Person.new(params[:person])
+    if @person.save
       flash[:notice] = "#{@person.full_name} was successfully created."
     else
       flash[:error] = "#{@person.full_name} was unable to be created."
