@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe Person do
 
   describe 'Validation' do
