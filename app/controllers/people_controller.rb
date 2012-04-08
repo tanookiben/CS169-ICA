@@ -8,12 +8,15 @@ class PeopleController < ApplicationController
   end
 
   def create
-    @person = Person.new(params[:person])
-    if @person.save
-      flash[:notice] = "#{@person.full_name} was successfully created."
-    else
-      flash[:error] = "#{@person.full_name} was unable to be created."
-    end
+    @person = Person.new()
+    updated_values = params[:person]
+    @person.update_attributes!(updated_values.except(:type))
+    @person.update_attribute(:type, updated_values[:type])
+#    if isSuccessful?
+#      flash[:notice] = "#{@person.full_name} was successfully created."
+#    else
+#      flash[:error] = "#{@person.full_name} was unable to be created."
+#    end
     redirect_to people_path
   end
 
@@ -47,4 +50,5 @@ class PeopleController < ApplicationController
     flash[:notice] = "Person '#{@person.full_name}' deleted."
     redirect_to people_path
   end
+
 end

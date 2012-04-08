@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120403000311) do
+ActiveRecord::Schema.define(:version => 20120406004409) do
 
   create_table "contact_informations", :force => true do |t|
     t.string   "contactable_type"
@@ -23,13 +23,21 @@ ActiveRecord::Schema.define(:version => 20120403000311) do
     t.datetime "updated_at"
   end
 
+  create_table "email_addresses", :force => true do |t|
+    t.string   "emailable_type"
+    t.integer  "emailable_id"
+    t.integer  "label"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "notes", :force => true do |t|
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "notable_type"
     t.integer  "notable_id"
-    t.string   "type"
   end
 
   create_table "people", :force => true do |t|
@@ -39,6 +47,27 @@ ActiveRecord::Schema.define(:version => 20120403000311) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+  end
+
+  create_table "phone_numbers", :force => true do |t|
+    t.string   "callable_type"
+    t.integer  "callable_id"
+    t.integer  "label"
+    t.string   "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "physical_addresses", :force => true do |t|
+    t.string   "mailable_type"
+    t.integer  "mailable_id"
+    t.integer  "label"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
