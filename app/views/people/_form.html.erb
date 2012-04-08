@@ -23,6 +23,17 @@
       <%= p.text_field :occupation %>
     </div>
   </div>
+  <% person.phone_numbers.each do |phone_number| %>
+    <%= p.fields_for :phone_numbers, phone_number do |pn| %>
+    <div class='control-group'>
+      <%= pn.text_field :label, :class => 'control-label' %>
+      <div class='controls'>
+        <%= pn.text_field :info %>
+      </div>
+      <%= pn.check_box :_destroy %>Destroy
+    </div>
+    <% end %>
+  <% end %>
   <div class='control-group'>
     <div class='controls'>
       <%= p.submit "#{action}" , :class => 'btn' %>

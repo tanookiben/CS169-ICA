@@ -1,0 +1,4 @@
+<dt>Address</dt>
+<% person.physical_addresses.each_with_index do |physical_address| %>
+  <dd><%= physical_address.label %>: <%= physical_address.info %></dd>
+<% end %>
