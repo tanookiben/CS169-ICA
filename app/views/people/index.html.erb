@@ -1,15 +1,9 @@
 <div class="content">
 <% if flash[:notice] %>
-  <div class="alert alert-success">
-    <a class="close" data-dismiss="alert">x</a>
-    <strong>Success!</strong> <%= flash[:notice] %>
-  </div>
+  <%= render :partial => 'shared/success', :locals => { :notice => flash[:notice] } %>
 <% end %>
 <% if flash[:error] %>
-  <div class="alert alert-error">
-    <a class="close" data-dismiss="alert">x</a>
-    <strong>Error!</strong> <%= flash[:error] %>
-  </div>
+  <%= render :partial => 'shared/error', :locals => { :error => flash[:error] } %>
 <% end %>
 <% if @search %>
   <h1>Searching for "<%= @search %>"</h1>
