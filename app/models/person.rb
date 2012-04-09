@@ -37,5 +37,9 @@ class Person < ActiveRecord::Base
       where('first_name LIKE ? OR last_name LIKE ? OR occupation LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     end
   end
+
+  def self.find_by_full_name(full_name)
+    where('first_name LIKE ? AND last_name LIKE ?', full_name.split(" ")[0], full_name.split(" ")[1])
+  end
 end
 
