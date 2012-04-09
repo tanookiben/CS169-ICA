@@ -1,2 +1,0 @@
-class EmailAddress < ContactInformation
-end

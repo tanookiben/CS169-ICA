@@ -1,10 +1,10 @@
 class PeopleController < ApplicationController
 
   def index
-    @search = params[:search]
-    @individuals = Individual.search(@search)
-    @board_members = BoardMember.search(@search)
-    @advisors = Advisor.search(@search)
+    @search_term = params[:search]
+    @individuals = Individual.search(@search_term)
+    @board_members = BoardMember.search(@search_term)
+    @advisors = Advisor.search(@search_term)
   end
 
   def create
@@ -15,7 +15,7 @@ class PeopleController < ApplicationController
 #    else
 #      flash[:error] = "#{@person.full_name} was unable to be created."
 #    end
-    redirect_to people_path
+    redirect_to root_path
   end
 
   def new
@@ -42,7 +42,7 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     @person.destroy
     flash[:notice] = "Person '#{@person.full_name}' deleted."
-    redirect_to people_path
+    redirect_to root_path
   end
 
   private
@@ -50,7 +50,7 @@ class PeopleController < ApplicationController
   def update_person(person, updated_attributes)
     # Type is separately updated because, as a STI specific property, it cannot
     # be mass-assigned with update_attributes. Order of update is also important
-    person.update_attributes!(updated_attributes.except(:type))
+    person.update_attributes!(updated_attributes.except(:type).except(:phone_numbers))
     person.update_attribute(:type, updated_attributes[:type])
   end
 end

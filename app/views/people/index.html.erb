@@ -5,8 +5,8 @@
 <% if flash[:error] %>
   <%= render :partial => 'shared/error', :locals => { :error => flash[:error] } %>
 <% end %>
-<% if @search %>
-  <h1>Searching for "<%= @search %>"</h1>
+<% if @search_term %>
+  <h1>Searching for "<%= @search_term %>"</h1>
   <h3>Individuals <%= link_to 'New Individual', new_person_path, :class => 'btn' %></h3>
   <%= render :partial => "table", :locals => { :people => @individuals } %>
   <h3>Board Members <%= link_to 'New Board Member', new_person_path, :class => 'btn' %></h3>
