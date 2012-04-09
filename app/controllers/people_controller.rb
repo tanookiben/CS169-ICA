@@ -9,9 +9,7 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new()
-    updated_values = params[:person]
-    @person.update_attributes!(updated_values.except(:type))
-    @person.update_attribute(:type, updated_values[:type])
+    update_person(@person, params[:person])
 #    if isSuccessful?
 #      flash[:notice] = "#{@person.full_name} was successfully created."
 #    else
@@ -35,11 +33,7 @@ class PeopleController < ApplicationController
   def update
     id = params[:id]
     @person = Person.find(id)
-    updated_values = params[:"#{@person.type.underscore}"]
-    # Type is separately updated because, as a STI specific property, it cannot
-    # be mass-assigned with update_attributes. Order of update is also important
-    @person.update_attributes!(updated_values.except(:type))
-    @person.update_attribute(:type, updated_values[:type])
+    update_person(@person, params[:"#{@person.type.underscore}"])
     flash[:notice] = "#{@person.full_name} was successfully updated."
     redirect_to person_path(id)
   end
@@ -51,4 +45,12 @@ class PeopleController < ApplicationController
     redirect_to people_path
   end
 
+  private
+
+  def update_person(person, updated_attributes)
+    # Type is separately updated because, as a STI specific property, it cannot
+    # be mass-assigned with update_attributes. Order of update is also important
+    person.update_attributes!(updated_attributes.except(:type))
+    person.update_attribute(:type, updated_attributes[:type])
+  end
 end
