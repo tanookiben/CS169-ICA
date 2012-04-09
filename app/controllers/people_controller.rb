@@ -15,7 +15,7 @@ class PeopleController < ApplicationController
 #    else
 #      flash[:error] = "#{@person.full_name} was unable to be created."
 #    end
-    redirect_to people_path
+    redirect_to root_path
   end
 
   def new
@@ -42,7 +42,7 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     @person.destroy
     flash[:notice] = "Person '#{@person.full_name}' deleted."
-    redirect_to people_path
+    redirect_to root_path
   end
 
   private
