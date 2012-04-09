@@ -19,17 +19,18 @@ Scenario: pre-selecting and filling in contact information correctly
   And I follow "Edit"
   Then I should be on the edit page for "Colin Harnes"
   And I should see "Colin Harnes"
-  And the "type" field should contain "Advisor"
-  And the "first_name" field should contain "Colin"
-  And the "last_name" field should contain "Harnes"
-  And the "occupation" field should contain "Dreamteller"
+  And "advisor_type" field should be selected for "Advisor"
+  And the "person[first_name]" field should contain "Colin"
+  And the "person[last_name]" field should contain "Harnes"
+  And the "person[occupation]" field should contain "Dreamteller"
   
 Scenario: updating contact information
 
   Given I am on the "Colin Harnes" page
   And I follow "Edit"
   Then I should be on the edit page for "Colin Harnes"
-  When I fill in "first_name" with "Anothername"
+  And "advisor_type" field should be selected for "Advisor"
+  When I fill in "person[first_name]" with "Anothername"
   And press "Update"
   Then I should be on the "Anothername Harnes" page
   And I should see "Anothername Harnes"

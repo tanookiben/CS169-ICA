@@ -25,3 +25,9 @@ end
 Then /I should not see any records/ do
    page.has_css?("table#people_table/tbody tr", :count => 0)
 end
+
+Then /^"([^"]*)" field should be selected for "(.*)"$/ do |field, value|
+  page.has_xpath?("//select[@id = '#{field}']/option[text() = '#{value}']")
+end
+
+
