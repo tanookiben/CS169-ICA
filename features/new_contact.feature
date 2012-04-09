@@ -17,25 +17,25 @@ Scenario: Add a new contact
 
   Given I am on the home page
   When I follow "here"
-  Then I should go to the create page
-  When I select "Individual" from "type"
-  And I fill in "first_name" with "Jake"
-  And I fill in "last_name" with "Tyler"
-  And I fill in "occupation" with "Priceteller"
+  Then I should be on the create page
+  When I select "Individual" from "person[type]"
+  And I fill in "person[first_name]" with "Jake"
+  And I fill in "person[last_name]" with "Tyler"
+  And I fill in "person[occupation]" with "Priceteller"
   And I press "Create"
-  Then I should go to the index page
+  Then I should be on the home page
   And I should see "Success!"
   
 Scenario: Cannot add a new contact if missing info
 
   Given I am on the home page
   When I follow "here"
-  Then I should go to the create page
-  When I select "Individual" from "type"
-  And I fill in "first_name" with "Jake"
-  And I fill in "last_name" with "Tyler"
+  Then I should be on the create page
+  When I select "Individual" from "person[type]"
+  And I fill in "person[first_name]" with "Jake"
+  And I fill in "person[last_name]" with "Tyler"
   And I press "Create"
-  Then I should go to the index page
+  Then I should be on the home page
   And I should see "Error!"
   
   

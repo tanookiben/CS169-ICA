@@ -19,6 +19,8 @@ module NavigationHelpers
       person_path(Person.find_by_full_name($1).first)
     when /^the edit page for "(.*)"$/i
       edit_person_path(Person.find_by_full_name($1).first)
+    when /^the create page$/
+      new_person_path
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
