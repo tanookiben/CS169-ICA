@@ -1,0 +1,4 @@
+<dt><%= contact_information.camelize %></dt>
+<% person.send("#{contact_information}").each_with_index do |contact_info| %>
+  <dd><%= contact_info.label %>: <%= contact_info.info %></dd>
+<% end %>

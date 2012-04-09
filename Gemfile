@@ -16,6 +16,7 @@ group :assets do
 end
 
 group :test, :development do
+  gem 'minitest', '>= 2.10'
   gem 'sqlite3'
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
@@ -25,6 +26,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'autotest'
+  gem 'factory_girl_rails'
 end
 
 group :production do

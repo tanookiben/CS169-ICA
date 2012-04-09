@@ -1,0 +1,2 @@
+class Individual < Person
+end

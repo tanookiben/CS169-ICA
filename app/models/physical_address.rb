@@ -1,0 +1,2 @@
+class PhysicalAddress < ContactInformation
+end

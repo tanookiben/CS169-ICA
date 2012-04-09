@@ -1,0 +1,4 @@
+<dt>Email</dt>
+<% person.email_addresses.each_with_index do |email_address| %>
+  <dd><%= email_address.label %>: <%= email_address.info %></dd>
+<% end %>
