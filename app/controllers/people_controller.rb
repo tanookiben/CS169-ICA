@@ -10,11 +10,11 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new()
     update_person(@person, params[:person])
-#    if isSuccessful?
-#      flash[:notice] = "#{@person.full_name} was successfully created."
-#    else
-#      flash[:error] = "#{@person.full_name} was unable to be created."
-#    end
+    if !@person.new_record?
+      flash[:notice] = "#{@person.full_name} was successfully created."
+    else
+      flash[:error] = "#{@person.full_name} was unable to be created."
+    end
     redirect_to root_path
   end
 
