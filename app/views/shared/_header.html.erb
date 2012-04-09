@@ -3,7 +3,8 @@
     <div class='container'>
       <%= link_to 'Inner City Advisors', root_path, :class => 'brand' %>
       <%= form_tag people_path, :method => :get, :class => 'navbar-search' do %>
-        <%= text_field_tag 'search', nil,  :class => 'search-query span3', :placeholder => 'Search' %>
+        <%= text_field_tag 'search', nil,  :class => 'search-query span3' %>
+        <%= submit_tag 'Search', :class => "btn", :id => 'Search'  %>
       <% end %>
       <ul class='nav pull-right'>
         <li><a href='#'>About</a></li>

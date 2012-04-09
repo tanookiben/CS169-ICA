@@ -15,7 +15,11 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-
+    when /^the "(.*)" page$/i
+      person_path(Person.find_by_full_name($1).first)
+    when /^the edit page for "(.*)"$/i
+      edit_person_path(Person.find_by_full_name($1).first)
+      
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
