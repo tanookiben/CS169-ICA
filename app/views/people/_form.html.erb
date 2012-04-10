@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <%= p.fields_for :phone_numbers, person.phone_number do |pn| %>
+  <%= p.fields_for :phone_number, person.phone_number do |pn| %>
     <div class='control-group'>
       <%= pn.select :label, { 'Home' => 'Home', 'Business' => 'Business', 'Mobile' => 'Mobile' }, {}, { :class => 'control-label' } %>
       <div class='controls'>
