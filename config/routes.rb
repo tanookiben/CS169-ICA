@@ -7,6 +7,8 @@ ICA::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
+  match 'home' => 'home#index', :via => :get, :as => :home
+
   # Needed for STI inheritance to be properly mapped by the form because
   # convention of form_for will look for the route of the specific model
   # rather than Person (i.e. looks for advisor_path instead of person_path)
@@ -56,7 +58,7 @@ ICA::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'people#index'
+   root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

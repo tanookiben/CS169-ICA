@@ -1,17 +1,22 @@
 class Person < ActiveRecord::Base
-  has_one :phone_number, :as => :callable
+  has_one :phone_number, :as => :callable, :dependent => :destroy
+  accepts_nested_attributes_for :phone_number
+  validates :type, :inclusion => { :in => %w(Individual BoardMember Advisor) }
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :occupation, :presence => true
+  validates_associated :phone_number
 
   def full_name
     "#{first_name} #{last_name}"
   end
 
-  def update_with(updated_attributes)
-    update_attributes!(updated_attributes.except(:type, :phone_number))
-# Type is separately updated because, as a single table inheritance specific
-# property, it cannot be mass assigned with update_attributes.
-    update_attribute(:type, updated_attributes[:type])
-# Phone numbers cannot be assigned through Person's update_attributes.
-    phone_number.update_attributes!(updated_attributes[:phone_number])
+  def update_with(attributes)
+    update_attributes(attributes.except(:type))
+    # Type is separately updated because, as a single table inheritance specific
+    # property, it cannot be mass assigned with update_attributes.
+    update_attribute(:type, attributes[:type])
+    save
   end
 
   def self.search(search_term)

@@ -15,35 +15,35 @@ describe PeopleController do
         @person = { :first_name => "", :last_name => "", :occupation => "" }
       end
       it "should not create a person" do
-        lambda do
+        lambda {
           post :create, :person => @person
-        end.should_not change(Person, :count)
+        }.should_not change(Person, :count)
       end
-      
+
       it "should redirect to the people page" do
         post :create, :person => @person
-        response.should redirect_to(people_path)
+        response.should redirect_to(root_path)
       end
     end
-    
+
     describe "success" do
       before(:each) do
         @person = { :first_name => "Ben", :last_name => "Hsieh", :occupation => "Developer" }
       end
-      
+
       it "should create a person" do
         lambda do
           post :create, :person => @person
         end.should change(Person, :count).by(1)
       end
-      
+
       it "should redirect to the people page" do
         post :create, :person => @person
-        response.should redirect_to(people_path)
+        response.should redirect_to(root_path)
       end
     end
   end
-  
+
   describe "GET 'new'" do
     it "should be successful" do
       get 'new'
@@ -55,23 +55,23 @@ describe PeopleController do
     before(:each) do
       @person =  FactoryGirl.create(:person)
     end
-    
+
     it "should be successful" do
       get 'edit', :id => @person
       response.should be_success
     end
   end
-  
+
   describe "GET 'show'" do
     before(:each) do
       @person =  FactoryGirl.create(:person)
     end
-    
+
     it "should be successful" do
       get 'show', :id => @person
       response.should be_successful
     end
-    
+
     it "should find the right person" do
       get 'show', :id => @person
       assigns(:person).should == @person
@@ -101,21 +101,21 @@ describe PeopleController do
   #       end
   #     end
   #   end
-  
+
   describe "DELETE 'destroy'" do
     before(:each) do
       @person = FactoryGirl.create(:person)
     end
-    
+
     it "should destroy the person" do
       lambda do
         delete :destroy, :id => @person
       end.should change(Person, :count).by(-1)
     end
-    
+
     it "should redirect to the people page" do
       delete :destroy, :id => @person
-      response.should redirect_to(people_path)
+      response.should redirect_to(root_path)
     end
   end
 

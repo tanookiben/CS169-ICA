@@ -3,7 +3,9 @@
   <div class='control-group'>
     <%= p.label :type, :class => 'control-label' %>
     <div class='controls'>
-      <%= p.select :type, { 'Individual' => 'Individual', 'Board Member' => 'BoardMember', 'Advisor' => 'Advisor' } %>
+      <%= p.select :type, { 'Individual' => 'Individual',
+                            'Board Member' => 'BoardMember',
+                            'Advisor' => 'Advisor' } %>
     </div>
   </div>
 
@@ -28,9 +30,12 @@
     </div>
   </div>
 
-  <%= p.fields_for :phone_number, person.phone_number do |pn| %>
+  <%= p.fields_for :phone_number do |pn| %>
     <div class='control-group'>
-      <%= pn.select :label, { 'Home' => 'Home', 'Business' => 'Business', 'Mobile' => 'Mobile' }, {}, { :class => 'control-label' } %>
+      <%= pn.select :label, { 'Home' => 'Home',
+                              'Business' => 'Business',
+                              'Mobile' => 'Mobile',
+                              'Other' => 'Other',}, {}, { :class => 'control-label' } %>
       <div class='controls'>
         <%= pn.text_field :number %>
       </div>

@@ -14,3 +14,10 @@
     </div><!-- .container -->
   </div><!-- .navbar-inner -->
 </div><!-- .navbar -->
+
+<% if flash[:notice] %>
+  <%= render :partial => 'shared/success', :locals => { :notice => flash[:notice] } %>
+<% end %>
+<% if flash[:error] %>
+  <%= render :partial => 'shared/error', :locals => { :error => flash[:error] } %>
+<% end %>

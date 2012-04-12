@@ -822,14 +822,14 @@
   },
   "RSpec": {
     "coverage": {
-      "/home/saasbook/Desktop/CS169-ICA/config/environment.rb": [
+      "/home/saasbook/CS169-ICA/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/home/saasbook/Desktop/CS169-ICA/config/application.rb": [
+      "/home/saasbook/CS169-ICA/config/application.rb": [
         1,
         null,
         1,
@@ -882,7 +882,7 @@
         null,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/config/boot.rb": [
+      "/home/saasbook/CS169-ICA/config/boot.rb": [
         1,
         null,
         null,
@@ -890,7 +890,7 @@
         null,
         1
       ],
-      "/home/saasbook/Desktop/CS169-ICA/config/environments/test.rb": [
+      "/home/saasbook/CS169-ICA/config/environments/test.rb": [
         1,
         null,
         null,
@@ -934,7 +934,7 @@
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/config/initializers/backtrace_silencers.rb": [
+      "/home/saasbook/CS169-ICA/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -943,7 +943,7 @@
         null,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/config/initializers/inflections.rb": [
+      "/home/saasbook/CS169-ICA/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -955,14 +955,14 @@
         null,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/config/initializers/mime_types.rb": [
+      "/home/saasbook/CS169-ICA/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/config/initializers/secret_token.rb": [
+      "/home/saasbook/CS169-ICA/config/initializers/secret_token.rb": [
         null,
         null,
         null,
@@ -971,7 +971,7 @@
         null,
         1
       ],
-      "/home/saasbook/Desktop/CS169-ICA/config/initializers/session_store.rb": [
+      "/home/saasbook/CS169-ICA/config/initializers/session_store.rb": [
         null,
         null,
         1,
@@ -981,7 +981,7 @@
         null,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/config/initializers/wrap_parameters.rb": [
+      "/home/saasbook/CS169-ICA/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -997,20 +997,20 @@
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/app/controllers/application_controller.rb": [
+      "/home/saasbook/CS169-ICA/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/app/helpers/application_helper.rb": [
+      "/home/saasbook/CS169-ICA/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/app/helpers/people_helper.rb": [
+      "/home/saasbook/CS169-ICA/app/helpers/people_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/app/controllers/people_controller.rb": [
+      "/home/saasbook/CS169-ICA/app/controllers/people_controller.rb": [
         1,
         null,
         1,
@@ -1023,69 +1023,40 @@
         1,
         4,
         4,
-        null,
-        null,
-        null,
-        null,
-        null,
-        2,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        2,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        2,
-        2,
-        2,
-        2,
-        null,
-        null,
-        1,
-        null,
-        1,
-        null,
-        null,
         4,
-        2,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
         null,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/app/models/person.rb": [
+      "/home/saasbook/CS169-ICA/app/models/person.rb": [
         1,
         1,
         1,
@@ -1095,29 +1066,20 @@
         1,
         null,
         1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        2,
+        0,
         null,
         null,
         1,
-        2,
+        4,
+        4,
+        4,
+        null,
+        4,
         null,
         null,
-        1,
-        2,
+        0,
         null,
-        null,
-        1,
-        2,
-        null,
-        null,
-        1,
-        1,
+        0,
         null,
         null,
         1,
@@ -1129,71 +1091,50 @@
         1,
         0,
         null,
-        null,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/app/models/advisor.rb": [
+      "/home/saasbook/CS169-ICA/app/models/advisor.rb": [
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/app/models/board_member.rb": [
+      "/home/saasbook/CS169-ICA/app/models/board_member.rb": [
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/app/models/contact_information.rb": [
-        1,
-        1,
-        null
-      ],
-      "/home/saasbook/Desktop/CS169-ICA/app/models/email_address.rb": [
+      "/home/saasbook/CS169-ICA/app/models/individual.rb": [
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/app/models/individual.rb": [
+      "/home/saasbook/CS169-ICA/app/models/phone_number.rb": [
         1,
-        null
-      ],
-      "/home/saasbook/Desktop/CS169-ICA/app/models/note.rb": [
         1,
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/app/models/phone_number.rb": [
-        1,
-        null
-      ],
-      "/home/saasbook/Desktop/CS169-ICA/app/models/physical_address.rb": [
-        1,
-        null
-      ],
-      "/home/saasbook/Desktop/CS169-ICA/spec/factories/notes.rb": [
+      "/home/saasbook/CS169-ICA/spec/factories/people.rb": [
         null,
         null,
+        1,
+        1,
+        1,
         1,
         1,
         1,
         null,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/spec/factories/person.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
+      "/home/saasbook/CS169-ICA/spec/factories/phone_numbers.rb": [
         null,
         null,
         1,
-        null,
-        null,
         1,
-        null,
-        null,
+        1,
+        1,
         1,
         null,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/config/routes.rb": [
+      "/home/saasbook/CS169-ICA/config/routes.rb": [
         1,
         null,
         null,
@@ -1261,7 +1202,7 @@
         null,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/spec/helpers/people_helper_spec.rb": [
+      "/home/saasbook/CS169-ICA/spec/helpers/people_helper_spec.rb": [
         1,
         null,
         null,
@@ -1278,126 +1219,21 @@
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/spec/views/people/index.html.erb_spec.rb": [
+      "/home/saasbook/CS169-ICA/spec/views/people/index.html.erb_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/spec/models/person_spec.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        4,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        6,
-        6,
-        6,
-        null,
-        null,
-        1,
-        1,
-        2,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        2,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        2,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/home/saasbook/Desktop/CS169-ICA/spec/models/note_spec.rb": [
+      "/home/saasbook/CS169-ICA/spec/models/phone_number_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/home/saasbook/Desktop/CS169-ICA/spec/models/contact_information_spec.rb": [
+      "/home/saasbook/CS169-ICA/spec/models/person_spec.rb": [
         1,
         null,
         1,
@@ -1405,6 +1241,6 @@
         null
       ]
     },
-    "timestamp": 1333945402
+    "timestamp": 1334112254
   }
 }
