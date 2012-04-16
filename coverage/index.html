@@ -23,7 +23,7 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-04-09T11:32:28-07:00">2012-04-09T11:32:28-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-04-15T22:01:04-07:00">2012-04-15T22:01:04-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -41,9 +41,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>30</b> files in total.
-    <b>283</b> relevant lines. 
-    <span class="green"><b>188</b> lines covered</span> and
-    <span class="red"><b>95</b> lines missed </span>
+    <b>286</b> relevant lines. 
+    <span class="green"><b>190</b> lines covered</span> and
+    <span class="red"><b>96</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -71,12 +71,12 @@
       
       <tr>
         <td class="strong"><a href="#69d36fe2799b0164e5c2f47f5d10febd4121ca0b" class="src_link" title="app/controllers/people_controller.rb">app/controllers/people_controller.rb</a></td>
-        <td class="yellow strong">80.65 %</td>
+        <td class="red strong">79.41 %</td>
         <td>56</td>
-        <td>31</td>
-        <td>25</td>
-        <td>6</td>
-        <td>2.0</td>
+        <td>34</td>
+        <td>27</td>
+        <td>7</td>
+        <td>1.9</td>
       </tr>
       
       <tr>
@@ -414,11 +414,11 @@
         <div class="source_table" id="69d36fe2799b0164e5c2f47f5d10febd4121ca0b">
   <div class="header">
     <h3>app/controllers/people_controller.rb</h3>
-    <h4><span class="yellow">80.65 %</span> covered</h4>
+    <h4><span class="red">79.41 %</span> covered</h4>
     <div>
-      <b>31</b> relevant lines. 
-      <span class="green"><b>25</b> lines covered</span> and
-      <span class="red"><b>6</b> lines missed.</span>
+      <b>34</b> relevant lines. 
+      <span class="green"><b>27</b> lines covered</span> and
+      <span class="red"><b>7</b> lines missed.</span>
     </div>
   </div>
   
@@ -497,34 +497,34 @@
           <code class="ruby">    update_person(@person, params[:person])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">#    if isSuccessful?</code>
+          <code class="ruby">    if !@person.new_record?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">#      flash[:notice] = &quot;#{@person.full_name} was successfully created.&quot;</code>
+          <code class="ruby">      flash[:notice] = &quot;#{@person.full_name} was successfully created.&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">#    else</code>
+          <code class="ruby">    else</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="missed" data-hits="0" data-linenumber="16">
           
           
-          <code class="ruby">#      flash[:error] = &quot;#{@person.full_name} was unable to be created.&quot;</code>
+          <code class="ruby">      flash[:error] = &quot;#{@person.full_name} was unable to be created.&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">#    end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="18">
@@ -1121,8 +1121,8 @@
           <code class="ruby">  def full_name</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="16">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="16">
+          <span class="hits">5</span>
           
           <code class="ruby">    self.first_name + ' ' + self.last_name</code>
         </li>

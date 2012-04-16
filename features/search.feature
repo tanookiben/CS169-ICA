@@ -3,22 +3,29 @@ Feature: An ICA admin should be able to search the global contacts list
   I want to search the global contacts list
   so that I can look up contact information.
 
-Background: all stakeholders have been added to the database
+Background: all contacts have been added to the database
 
-  Given the following stakeholders exist:
-  | first_name   | last_name     | type            | occupation   |
-  | John         | Smith         | Entreprenuer    | Teller       |
-  | Gregg        | Fields        | Bank            | Storyteller  |
-  | Jack         | Mitchell      | Board           | Bankteller   |
-  | Faye         | Johnson       | Entrepreneur    | Futureteller |
-  | Colin        | Harnes        | Advisor         | Dreamteller  |
+  Given the following individuals exist:
+  | id  | first_name   | last_name     | type            | occupation   |
+  | 1   | John         | Smith         | Entreprenuer    | Teller       |
+  | 2   | Gregg        | Fields        | Bank            | Storyteller  |
+  | 3   | Jack         | Mitchell      | Board           | Bankteller   |
+  | 4   | Faye         | Johnson       | Entrepreneur    | Futureteller |
+  | 5   | Colin        | Harnes        | Advisor         | Dreamteller  |
+  
+  And the following companies exist:
+  | name               | representative_role | representatice_id | type                          |
+  | John's Bank        | CEO                 | 1                 | portfolio                     |
+  | Faye Future        | financial manager   | 4                 | education                     |
+  | Mitchell's Bank    | teller              | 3                 | professional_service_provider |
+  | Harnes Dreamimg    | bookie              | 5                 | education                     |
 
 
 Scenario: search with empty string should return the entire contacts list
 
    Given I am on the home page
    When I press "Search"
-   Then I should see the complete global contacts list 
+   Then I should see the complete global contacts list containing all individuals and companies 
 
 Scenario: search with non-empty string should return records that contain the string (in any field)
 
