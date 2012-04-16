@@ -16,8 +16,8 @@
       <td><%= person.last_name %></td>
       <td><%= person.occupation %></td>
       <td>
-      <% if person.phone_numbers.first %>
-        <%= person.phone_numbers.first.label + ': ' + person.phone_numbers.first.info %></td>
+      <% if person.phone_number %>
+        <%= "#{person.phone_number.label}: #{person.phone_number.number}" %></td>
       <% end %>
     </tr>
   <% end %>

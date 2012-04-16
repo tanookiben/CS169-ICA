@@ -11,34 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120409015557) do
-
-  create_table "contact_informations", :force => true do |t|
-    t.string   "contactable_type"
-    t.integer  "contactable_id"
-    t.string   "type"
-    t.string   "label"
-    t.string   "info"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "notes", :force => true do |t|
-    t.string   "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "notable_type"
-    t.integer  "notable_id"
-    t.string   "type"
-  end
+ActiveRecord::Schema.define(:version => 20120409195031) do
 
   create_table "people", :force => true do |t|
+    t.string   "type"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "occupation"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
   end
+
+  create_table "phone_numbers", :force => true do |t|
+    t.integer  "callable_id"
+    t.string   "callable_type"
+    t.string   "label"
+    t.integer  "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "phone_numbers", ["callable_id"], :name => "index_phone_numbers_on_callable_id"
 
 end

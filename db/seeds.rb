@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+PHONE_LABELS = ['Mobile', 'Home', 'Business', 'Other']
+
 INDIVIDUALS = [
   {:first_name => 'Mike', :last_name => 'Vermillion', :occupation => 'Harvest Manager'},
   {:first_name => 'Gregory', :last_name => 'Topping', :occupation => 'Fire Sprinkler Installer'},
@@ -21,10 +23,6 @@ INDIVIDUALS = [
   {:first_name => 'Barbara', :last_name => 'Theisen', :occupation => 'Flight Communications Operator'},
   {:first_name => 'Louis', :last_name => 'Bates', :occupation => 'Photojournalist'},
   {:first_name => 'Julia', :last_name => 'Herman', :occupation => 'Oceanographer'},
-  {:first_name => 'Larry', :last_name => 'Cadena', :occupation => 'Mental Health Program Manager'},
-  {:first_name => 'Jimmy', :last_name => 'Torrence', :occupation => 'School Bus Dispatcher'},
-  {:first_name => 'Vanessa', :last_name => 'Kershner', :occupation => 'Immigration Investigator'},
-  {:first_name => 'Daniel', :last_name => 'Sisson', :occupation => 'Blood Donor Recruiter'},
 ]
 
 BOARDMEMBERS = [
@@ -37,7 +35,6 @@ ADVISORS = [
   {:first_name => 'Nathan', :last_name => 'Cortes', :occupation => 'Wildlife Veterinarian'}
 ]
 
-PHONE_LABELS = ['Mobile','Home','Business']
 PHONE_NUMBER_GENERATOR = Random.new
 
 INDIVIDUALS.each do |i|
@@ -52,6 +49,6 @@ ADVISORS.each do |a|
   Advisor.create(a)
 end
 
-Person.find(:all).each do |p|
-  p.phone_numbers.create(:label => PHONE_LABELS[rand(3)], :info => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
+Person.all.each do |p|
+  p.create_phone_number(:label => PHONE_LABELS[rand(4)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
 end

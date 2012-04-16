@@ -1,4 +1,2 @@
 <dt>Phone</dt>
-<% person.phone_numbers.each_with_index do |phone_number| %>
-  <dd><%= phone_number.label %>: <%= phone_number.info %></dd>
-<% end %>
+<dd><%= "#{person.phone_number.label}: #{person.phone_number.number}" %></dd>
