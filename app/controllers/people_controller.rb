@@ -8,9 +8,12 @@ class PeopleController < ApplicationController
   end
 
   def create
-    @person = Person.new()
-    @person.update_with(params[:person])
-    flash[:notice] = "#{@person.full_name} was created."
+    @person = Person.new(params[:person])
+    if @person.save
+      flash[:notice] = "#{@person.full_name} was created."
+    else
+      flash[:notice] = "#{@person.full_name} was not created."
+    end
     redirect_to root_path
   end
 

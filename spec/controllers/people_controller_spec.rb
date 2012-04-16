@@ -20,9 +20,9 @@ describe PeopleController do
         end.should_not change(Person, :count)
       end
       
-      it "should redirect to the people page" do
+      it "should redirect to the root page" do
         post :create, :person => @person
-        response.should redirect_to(people_path)
+        response.should redirect_to(root_path)
       end
     end
     
@@ -37,9 +37,9 @@ describe PeopleController do
         end.should change(Person, :count).by(1)
       end
       
-      it "should redirect to the people page" do
+      it "should redirect to the root page" do
         post :create, :person => @person
-        response.should redirect_to(people_path)
+        response.should redirect_to(root_path)
       end
     end
   end
@@ -79,28 +79,28 @@ describe PeopleController do
   end
   
   # describe "PUT 'update'" do
-  #     before(:each) do
-  #       @person =  FactoryGirl.create(:person)
-  #     end
+  #   before(:each) do
+  #     @person =  FactoryGirl.create(:person)
+  #   end
   #     
-  #     describe "success" do
-  #       before(:each) do
-  #         @new = { :first_name => "New First Name", :last_name => "New Last Name", :occupation => "New Job" }
-  #       end
+  #   describe "success" do
+  #     before(:each) do
+  #       @new = { :first_name => "New First Name", :last_name => "New Last Name", :occupation => "New Job" }
+  #     end
   #       
-  #       it "should change the person's attributes" do
-  #         put :update, :id => @person, :person => @new
-  #         @person.reload
-  #         @person.first_name.should == @new[:first_name]
-  #         @person.last_name.should == @new[:last_name]
-  #       end
+  #     it "should change the person's attributes" do
+  #       put :update, :id => @person, :person => @new
+  #       @person.reload
+  #       @person.first_name.should == @new[:first_name]
+  #       @person.last_name.should == @new[:last_name]
+  #     end
   #       
-  #       it "should redirect to the person's page" do
-  #         put :update, :id => @person, :person => @new
-  #         response.should redirect_to(person_path(@person))
-  #       end
+  #     it "should redirect to the person's page" do
+  #       put :update, :id => @person, :person => @new
+  #       response.should redirect_to(person_path(@person))
   #     end
   #   end
+  # end
   
   describe "DELETE 'destroy'" do
     before(:each) do
@@ -113,9 +113,9 @@ describe PeopleController do
       end.should change(Person, :count).by(-1)
     end
     
-    it "should redirect to the people page" do
+    it "should redirect to the root page" do
       delete :destroy, :id => @person
-      response.should redirect_to(people_path)
+      response.should redirect_to(root_path)
     end
   end
 
