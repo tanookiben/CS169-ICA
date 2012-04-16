@@ -1,6 +1,9 @@
 class Person < ActiveRecord::Base
   has_one :phone_number, :as => :callable, :dependent => :destroy
   accepts_nested_attributes_for :phone_number
+
+  has_one :company, :foreign_key => "representative_id"
+
   validates :type, :inclusion => { :in => %w(Individual BoardMember Advisor) }
   validates :first_name, :presence => true
   validates :last_name, :presence => true

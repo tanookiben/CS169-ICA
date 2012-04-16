@@ -1,0 +1,22 @@
+<table class="table table-striped" name="companies_table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Representative</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% companies.each_with_index do |company, index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= link_to company.name, company_path(company) %></td>
+      <td>
+      <% if company.representative %>
+        <%= "#{company.representative_role}: #{company.representative.full_name}" %>
+      <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

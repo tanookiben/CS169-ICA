@@ -1,0 +1,2 @@
+class ProfessionalServiceProvider < Company
+end

@@ -1,0 +1,2 @@
+class EducationCompany < Company
+end
