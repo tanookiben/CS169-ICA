@@ -15,9 +15,9 @@ ICA::Application.routes.draw do
   match 'individual/:id' => 'people#update', :via => :put, :as => :individual
   match 'board_member/:id' => 'people#update', :via => :put, :as => :board_member
   match 'advisor/:id' => 'people#update', :via => :put, :as => :advisor
-  match 'education_company/:id' => 'company#update', :via => :put, :as => :education_company
-  match 'portfolio_company/:id' => 'company#update', :via => :put, :as => :portfolio_company
-  match 'professional_service_provider_company/:id' => 'company#update', :via => :put, :as => :professional_service_provider_company
+  match 'education_company/:id' => 'companies#update', :via => :put, :as => :education_company
+  match 'portfolio_company/:id' => 'companies#update', :via => :put, :as => :portfolio_company
+  match 'professional_service_provider/:id' => 'companies#update', :via => :put, :as => :professional_service_provider
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
