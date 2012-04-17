@@ -1,39 +1,37 @@
-<%= form_for company, :html => {:class => 'form-horizontal'} do |p| %>
+<%= form_for company, :html => {:class => 'form-horizontal'} do |c| %>
 
   <div class='control-group'>
-    <%= p.label :type, :class => 'control-label' %>
+    <%= c.label :type, :class => 'control-label' %>
     <div class='controls'>
-      <%= p.select :type, { 'Education Company' => 'EducationCompany',
+      <%= c.select :type, { 'Education Company' => 'EducationCompany',
                             'Portfolio Company' => 'PortfolioCompany',
                             'Professional Service Provider' => 'ProfessionalServiceProvider' } %>
     </div>
   </div>
 
   <div class='control-group'>
-    <%= p.label :name, :class => 'control-label' %>
+    <%= c.label :name, :class => 'control-label' %>
     <div class='controls'>
-      <%= p.text_field :name %>
+      <%= c.text_field :name %>
     </div>
   </div>
 
   <div class='control-group'>
-    <%= p.label :representative_id, :class => 'control-label' %>
+    <%= c.label :representative_id, :class => 'control-label' %>
     <div class='controls'>
-      <%= p.text_field :representative_id %>
+      <%= c.text_field :representative_id %>
     </div>
   </div>
 
   <div class='control-group'>
-    <%= p.label :representative_role, :class => 'control-label' %>
+    <%= c.label :representative_role, :class => 'control-label' %>
     <div class='controls'>
-      <%= p.text_field :representative_role %>
+      <%= c.text_field :representative_role %>
     </div>
   </div>
-<!--
-  <%= p.fields_for :phone_number do |pn| %>
+  <%= c.fields_for :phone_number do |pn| %>
     <div class='control-group'>
-      <%= pn.select :label, { 'Home' => 'Home',
-                              'Business' => 'Business',
+      <%= pn.select :label, { 'Business' => 'Business',
                               'Mobile' => 'Mobile',
                               'Other' => 'Other',}, {}, { :class => 'control-label' } %>
       <div class='controls'>
@@ -41,10 +39,9 @@
       </div>
     </div>
   <% end %>
--->
   <div class='control-group'>
     <div class='controls'>
-      <%= p.submit "#{action}" , :class => 'btn' %>
+      <%= c.submit "#{action}" , :class => 'btn' %>
     </div>
   </div>
 

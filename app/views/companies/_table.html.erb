@@ -1,24 +1,27 @@
-<table class="table table-striped" name="people_table">
+<table class="table table-striped" name="companies_table">
   <thead>
     <tr>
       <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Occupation</th>
+      <th>Name</th>
+      <th>Representative</th>
       <th>Phone Number</th>
     </tr>
   </thead>
   <tbody>
-  <% people.each_with_index do |person, index| %>
+  <% companies.each_with_index do |company, index| %>
     <tr>
       <td><%= index+1 %></td>
-      <td><%= link_to person.first_name, person_path(person) %></td>
-      <td><%= person.last_name %></td>
-      <td><%= person.occupation %></td>
+      <td><%= link_to company.name, company_path(company) %></td>
       <td>
-      <% if person.phone_number %>
-        <%= "#{person.phone_number.label}: #{person.phone_number.number}" %></td>
+      <% if company.representative %>
+        <%= "#{company.representative_role}: #{company.representative.full_name}" %>
       <% end %>
+      </td>
+      <td>
+      <% if company.phone_number %>
+        <%= "#{company.phone_number.label}: #{company.phone_number.number}" %>
+      <% end %>
+      </td>
     </tr>
   <% end %>
   </tbody>
