@@ -10,16 +10,11 @@ class Person < ActiveRecord::Base
   validates :occupation, :presence => true
   validates_associated :phone_number
 
+  # Mixes in the update_with method since it is shared between this an Company
+  include Contact
+
   def full_name
     "#{first_name} #{last_name}"
-  end
-
-  def update_with(attributes)
-    update_attributes(attributes.except(:type))
-    # Type is separately updated because, as a single table inheritance specific
-    # property, it cannot be mass assigned with update_attributes.
-    update_attribute(:type, attributes[:type])
-    save
   end
 
   def self.search(search_term)

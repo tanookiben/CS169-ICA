@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-PHONE_LABELS = ['Mobile', 'Home', 'Business', 'Other']
+PHONE_LABELS = ['Mobile', 'Business', 'Other', 'Home']
 
 INDIVIDUALS = [
   {:first_name => 'Mike', :last_name => 'Vermillion', :occupation => 'Harvest Manager'},
@@ -35,6 +35,21 @@ ADVISORS = [
   {:first_name => 'Nathan', :last_name => 'Cortes', :occupation => 'Wildlife Veterinarian'}
 ]
 
+EDUCATIONCOMPANIES = [
+  {:name => 'Translation Renderers', :representative_id => '1', :representative_role => 'Secretary'},
+  {:name => 'Helpful Sows', :representative_id => '2', :representative_role => 'Warden'}
+]
+
+PORTFOLIOCOMPANIES = [
+  {:name => 'Key Community Inc.', :representative_id => '3', :representative_role => 'Manager'},
+  {:name => 'Total Information', :representative_id => '4', :representative_role => 'Supervisor'}
+]
+
+PROFESSIONALSERVICEPROVDERS = [
+  {:name => 'Network Community', :representative_id => '5', :representative_role => 'Manager'},
+  {:name => 'Indicative Data', :representative_id => '6', :representative_role => 'Supervisor'}
+]
+
 PHONE_NUMBER_GENERATOR = Random.new
 
 INDIVIDUALS.each do |i|
@@ -49,6 +64,22 @@ ADVISORS.each do |a|
   Advisor.create(a)
 end
 
+EDUCATIONCOMPANIES.each do |ec|
+  EducationCompany.create(ec)
+end
+
+PORTFOLIOCOMPANIES.each do |pc|
+  PortfolioCompany.create(pc)
+end
+
+PROFESSIONALSERVICEPROVDERS.each do |psp|
+  ProfessionalServiceProvider.create(psp)
+end
+
 Person.all.each do |p|
   p.create_phone_number(:label => PHONE_LABELS[rand(4)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
+end
+
+Company.all.each do |c|
+  c.create_phone_number(:label => PHONE_LABELS[rand(3)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
 end

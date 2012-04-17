@@ -1,6 +1,9 @@
 <h2><%= @person.type %></h2>
 <h1><%= @person.full_name %></h1>
 <h3>Occupation: <%= @person.occupation %></h3>
+<% if @person.company %>
+  <h3>Works for: <%= link_to @person.company.name, company_path(@person.company), :method => :get %></h3>
+<% end %>
 <dl>
   <%= render :partial => 'shared/show_phone_numbers', :locals => { :contact => @person, :contact_information => 'phone_number' } %>
   <%#= render :partial => 'show_email_addresses', :locals => { :person => @person } %>

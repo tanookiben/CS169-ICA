@@ -31,7 +31,8 @@
   </div>
   <%= c.fields_for :phone_number do |pn| %>
     <div class='control-group'>
-      <%= pn.select :label, { 'Business' => 'Business',
+      <%= pn.select :label, { 'Home' => 'Home',
+                              'Business' => 'Business',
                               'Mobile' => 'Mobile',
                               'Other' => 'Other',}, {}, { :class => 'control-label' } %>
       <div class='controls'>

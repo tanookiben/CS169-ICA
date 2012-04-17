@@ -11,10 +11,11 @@ class PeopleController < ApplicationController
     @person = Person.new
     if @person.update_with(params[:person])
       flash[:notice] = "#{@person.full_name} was created."
+      redirect_to person_path(@person)
     else 
-      flash[:error] = "Cannot create new person. #{@person.errors.messages}"
+      flash[:error] = "Cannot create new person. #{@person.errors.full_messages}"
+      redirect_to new_person_path
     end
-    redirect_to person_path(@person)
   end
 
   def new
@@ -35,7 +36,7 @@ class PeopleController < ApplicationController
     if @person.update_with(params[:"#{@person.type.underscore}"])
       flash[:notice] = "#{@person.full_name} was updated."
     else
-      flash[:error] = "Cannot update #{@person.full_name}. #{@person.errors.messages}"
+      flash[:error] = "Cannot update #{@person.full_name}. #{@person.errors.full_messages}"
     end
     redirect_to person_path(@person)
   end
@@ -44,7 +45,7 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     @person.destroy
     flash[:notice] = "Person '#{@person.full_name}' was deleted."
-    redirect_to people_path
+    redirect_to search_path
   end
 
 end
