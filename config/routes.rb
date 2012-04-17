@@ -7,12 +7,17 @@ ICA::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
+  match 'contacts' => 'contacts#search', :via => :get, :as => :search
+
   # Needed for STI inheritance to be properly mapped by the form because
   # convention of form_for will look for the route of the specific model
   # rather than Person (i.e. looks for advisor_path instead of person_path)
   match 'individual/:id' => 'people#update', :via => :put, :as => :individual
   match 'board_member/:id' => 'people#update', :via => :put, :as => :board_member
   match 'advisor/:id' => 'people#update', :via => :put, :as => :advisor
+  match 'education_company/:id' => 'companies#update', :via => :put, :as => :education_company
+  match 'portfolio_company/:id' => 'companies#update', :via => :put, :as => :portfolio_company
+  match 'professional_service_provider/:id' => 'companies#update', :via => :put, :as => :professional_service_provider
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
@@ -20,6 +25,7 @@ ICA::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :people
+  resources :companies
 
   # Sample resource route with options:
   #   resources :products do
@@ -56,7 +62,7 @@ ICA::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'people#index'
+   root :to => 'application#index'
 
   # See how all your routes lay out with "rake routes"
 

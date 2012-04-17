@@ -2,23 +2,25 @@ class PeopleController < ApplicationController
 
   def index
     @search_term = params[:search]
-    @individuals = Individual.search(@search_term)
-    @board_members = BoardMember.search(@search_term)
-    @advisors = Advisor.search(@search_term)
+    @individuals = @search_term ? Individual.search(@search_term) : Individual.all
+    @board_members = @search_term ? BoardMember.search(@search_term) : BoardMember.all
+    @advisors = @search_term ? Advisor.search(@search_term) : Advisor.all
   end
 
   def create
-    @person = Person.new(params[:person])
-    if @person.save
+    @person = Person.new
+    if @person.update_with(params[:person])
       flash[:notice] = "#{@person.full_name} was created."
-    else
-      flash[:notice] = "#{@person.full_name} was not created."
+      redirect_to person_path(@person)
+    else 
+      flash[:error] = "Cannot create new person. #{@person.errors.full_messages}"
+      redirect_to new_person_path
     end
-    redirect_to root_path
   end
 
   def new
     @person = Person.new
+    @person.build_phone_number
   end
 
   def edit
@@ -30,18 +32,20 @@ class PeopleController < ApplicationController
   end
 
   def update
-    id = params[:id]
-    @person = Person.find(id)
-    @person.update_with(params[:"#{@person.type.underscore}"])
-    flash[:notice] = "#{@person.full_name} was updated."
-    redirect_to person_path(id)
+    @person = Person.find(params[:id])
+    if @person.update_with(params[:"#{@person.type.underscore}"])
+      flash[:notice] = "#{@person.full_name} was updated."
+    else
+      flash[:error] = "Cannot update #{@person.full_name}. #{@person.errors.full_messages}"
+    end
+    redirect_to person_path(@person)
   end
 
   def destroy
     @person = Person.find(params[:id])
     @person.destroy
     flash[:notice] = "Person '#{@person.full_name}' was deleted."
-    redirect_to root_path
+    redirect_to search_path
   end
 
 end

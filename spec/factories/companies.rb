@@ -1,7 +1,9 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :label do
-    label "MyString"
+  factory :company do
+    name "MyString"
+    representative ""
+    representative_role "MyString"
   end
 end

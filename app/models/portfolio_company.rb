@@ -1,0 +1,2 @@
+class PortfolioCompany < Company
+end
