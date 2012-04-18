@@ -2,18 +2,29 @@ require 'spec_helper'
 
 describe Person do
   before(:each) do
-    @ben_attr = { :first_name => "TestBen", :last_name => "Hsieh", :occupation => "Developer" }
-    @kon_attr = { :first_name => "TestKon", :last_name => "Rud", :occupation => "Developer" }
-    @ter_attr = { :first_name => "TestTer", :last_name => "Yeh", :occupation => "Developer" }
-    @tom_attr = { :first_name => "TestTom", :last_name => "Liao", :occupation => "Developer" }
-    @ben = Person.create!(@ben_attr)
-    @kon = Person.create!(@kon_attr)
-    @ter = Person.create!(@ter_attr)
-    @tom = Person.create!(@tom_attr)
+    @ben_attr = { :first_name => "TestBen", :last_name => "Hsieh", :occupation => "Developer", :type => "Individual" }
+    @kon_attr = { :first_name => "TestKon", :last_name => "Rud", :occupation => "Developer", :type => "Individual" }
+    @ter_attr = { :first_name => "TestTer", :last_name => "Yeh", :occupation => "Developer", :type => "BoardMember" }
+    @tom_attr = { :first_name => "TestTom", :last_name => "Liao", :occupation => "Developer", :type => "Advisor" }
+    @ben = Individual.new
+    @ben.update_with(@ben_attr)
+    @kon = Individual.new
+    @kon.update_with(@kon_attr)
+    @ter = BoardMember.new
+    @ter.update_with(@ter_attr)
+    @tom = Advisor.new
+    @tom.update_with(@tom_attr)
   end
   
   it "should successfully create people" do
     Person.count.should == 4
+  end
+  
+  it "should correctly create full name attribute" do
+    @ben.full_name.should == "TestBen Hsieh"
+    @kon.full_name.should == "TestKon Rud"
+    @ter.full_name.should == "TestTer Yeh"
+    @tom.full_name.should == "TestTom Liao"
   end
   
   describe "search terms" do
