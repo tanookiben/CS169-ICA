@@ -77,9 +77,9 @@ PROFESSIONALSERVICEPROVDERS.each do |psp|
 end
 
 Person.all.each do |p|
-  p.create_phone_number(:label => PHONE_LABELS[rand(4)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
+  p.create_phone_number(:label => PHONE_LABELS[rand(4)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..4294967295))
 end
 
 Company.all.each do |c|
-  c.create_phone_number(:label => PHONE_LABELS[rand(3)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
+  c.create_phone_number(:label => PHONE_LABELS[rand(3)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..4294967295))
 end
