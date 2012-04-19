@@ -5,9 +5,21 @@ describe Company do
     @count = Company.count
     @ultimate = { :first_name => "Super", :last_name => "Baller", :occupation => "Badass", :type => "Individual" }
     @ultimateCEO = Person.new(@ultimate)
-    @apple = Company.create!({ :name => "TestApple", :representative => @ultimateCEO, :representative_role => "Ultimate Master" })
-    @msoft = Company.create!({ :name => "TestMicrosoft", :representative => @ultimateCEO, :representative_role => "Greatest Leader" })
-    @fbook = Company.create!({ :name => "TestFacebook", :representative => @ultimateCEO, :representative_role => "King" })
+    @appleattr = { :name => "TestApple", :representative => @ultimateCEO, :representative_role => "Ultimate Master", :type => "ProfessionalServiceProvider" }
+    @msoftattr = { :name => "TestMicrosoft",
+                                :representative => @ultimateCEO,
+                                :representative_role => "Greatest Leader",
+                                :type => "ProfessionalServiceProvider" }
+    @fbookattr = { :name => "TestFacebook",
+                                :representative => @ultimateCEO,
+                                :representative_role => "King",
+                                :type => "ProfessionalServiceProvider" }
+    @apple = ProfessionalServiceProvider.new
+    @msoft = ProfessionalServiceProvider.new
+    @fbook = ProfessionalServiceProvider.new
+    @apple.update_with(@appleattr)
+    @msoft.update_with(@msoftattr)
+    @fbook.update_with(@fbookattr)
   end
   
   it "should successfully create companies" do

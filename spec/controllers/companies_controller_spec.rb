@@ -4,20 +4,19 @@ describe CompaniesController do
   describe "POST 'create'" do
     describe "failure" do
       before(:each) do
-        @company = { :name => "", :representative => "", :representative => "", :type => "" }
+        @company = { :name => "", :representative => Person.new, :representative_role => "", :type => "EducationCompany" }
       end
       
-      pending "validation on companies"
-      # it "should not create a company" do
-      #   lambda do
-      #     post :create, :company => @company
-      #   end.should_not change(Company, :count).by(1)
-      # end
-      # 
-      # it "should redirect to the company create page" do
-      #   post :create, :company => @company
-      #   response.should redirect_to(new_company_path)
-      # end
+      it "should not create a company" do
+        lambda do
+          post :create, :company => @company
+        end.should_not change(Company, :count).by(1)
+      end
+      
+      it "should redirect to the company create page" do
+        post :create, :company => @company
+        response.should redirect_to(new_company_path)
+      end
     end
     
     describe "success" do
@@ -61,8 +60,7 @@ describe CompaniesController do
   
   describe "GET 'show'" do
     before(:each) do
-      @companyattr = { :name => "Test Company", :representative => Person.new({ :first_name => "MyFirst", :last_name => "MyLast", :occupation => "MyJob", :type => "Individual" }), :representative_role => "Test Role" }
-      @company = Company.create!(@companyattr)
+      @company = FactoryGirl.create(:educ)
     end
     
     it "should be successful" do
@@ -88,26 +86,23 @@ describe CompaniesController do
     
     describe "failure" do
       before(:each) do
-        @newben = { :name => "", :representative => "", :representative_role => "", :type => "EducationCompany" }
+        @newben = { :name => "", :representative => Person.new, :representative_role => "", :type => "EducationCompany" }
       end
       
-      pending "validation on companies"
-      # it "should not change the company's attributes" do
-      #   put :update, :id => @company, :professional_service_provider => @newben
-      #   @newcompany = EducationCompany.find(:all, :conditions => [ "name is ? AND
-      #                                                               representative is ? AND
-      #                                                               representative_role is ? AND
-      #                                                               type is ?", @newben[:name],
-      #                                                                           @newben[:representative],
-      #                                                                           @newben[:representative_role],
-      #                                                                           @newben[:type]]).first
-      #   @newcompany.should be_nil
-      # end
-      # 
-      # it "should redirect to the company page" do
-      #   put :udpate, :id => @company, :professional_service_provider => @newben
-      #   response.should redirect_to(company_path(@company))
-      # end
+      it "should not change the company's attributes" do
+        put :update, :id => @company, :professional_service_provider => @newben
+        @newcompany = EducationCompany.find(:all, :conditions => [ "name is ? AND
+                                                                    representative_role is ? AND
+                                                                    type is ?", @newben[:name],
+                                                                                @newben[:representative_role],
+                                                                                @newben[:type]]).first
+        @newcompany.should be_nil
+      end
+      
+      it "should redirect to the company page" do
+        put :update, :id => @company, :professional_service_provider => @newben
+        response.should redirect_to(company_path(@company))
+      end
     end
     
     describe "success" do
@@ -118,7 +113,6 @@ describe CompaniesController do
                     :type => "PortfolioCompany" }
       end
       
-      pending "validation on company representatives"
       it "should change the company's attributes" do
         put :update, :id => @company, :professional_service_provider => @newben
         @newcompany = PortfolioCompany.find(:all, :conditions => ["name is ? AND
