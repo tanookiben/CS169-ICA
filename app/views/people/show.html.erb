@@ -6,7 +6,7 @@
 <% end %>
 <dl>
   <%= render :partial => 'shared/show_phone_numbers', :locals => { :contact => @person, :contact_information => 'phone_number' } %>
-  <%#= render :partial => 'show_email_addresses', :locals => { :person => @person } %>
+  <%= render :partial => 'shared/show_email_addresses', :locals => { :contact => @person } %>
   <%#= render :partial => 'show_physical_addresses', :locals => { :person => @person } %>
 </dl>
 <%= link_to 'Edit', edit_person_path(@person), :class => 'btn' %>

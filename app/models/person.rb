@@ -1,6 +1,8 @@
 class Person < ActiveRecord::Base
   has_one :phone_number, :as => :callable, :dependent => :destroy
+  has_one :email_address, :as => :emailable, :dependent => :destroy
   accepts_nested_attributes_for :phone_number
+  accepts_nested_attributes_for :email_address
 
   has_one :company, :foreign_key => "representative_id"
 
@@ -10,7 +12,7 @@ class Person < ActiveRecord::Base
   validates :occupation, :presence => true
   validates_associated :phone_number
 
-  # Mixes in the update_with method since it is shared between this an Company
+  # Mixes in the update_with method since it is shared between this and Company
   include Contact
 
   def full_name

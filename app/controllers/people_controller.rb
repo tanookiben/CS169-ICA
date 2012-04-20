@@ -21,6 +21,7 @@ class PeopleController < ApplicationController
   def new
     @person = Person.new
     @person.build_phone_number
+    @person.build_email_address
   end
 
   def edit

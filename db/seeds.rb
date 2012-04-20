@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-PHONE_LABELS = ['Mobile', 'Business', 'Other', 'Home']
+LABELS = ['Mobile', 'Business', 'Other', 'Home']
 
 INDIVIDUALS = [
   {:first_name => 'Mike', :last_name => 'Vermillion', :occupation => 'Harvest Manager'},
@@ -77,9 +77,11 @@ PROFESSIONALSERVICEPROVDERS.each do |psp|
 end
 
 Person.all.each do |p|
-  p.create_phone_number(:label => PHONE_LABELS[rand(4)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
+  p.create_phone_number(:label => LABELS[rand(4)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
+  p.create_email_address(:label => LABELS[rand(4)], :email => "foo")
 end
 
 Company.all.each do |c|
-  c.create_phone_number(:label => PHONE_LABELS[rand(3)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
+  c.create_phone_number(:label => LABELS[rand(3)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
+  c.create_email_address(:label => LABELS[rand(3)], :email => "bar")
 end

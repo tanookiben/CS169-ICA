@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412213053) do
+ActiveRecord::Schema.define(:version => 20120419193617) do
 
   create_table "companies", :force => true do |t|
     t.string   "type"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(:version => 20120412213053) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "email_addresses", :force => true do |t|
+    t.integer  "emailable_id"
+    t.string   "emailable_type"
+    t.string   "label"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "email_addresses", ["emailable_id"], :name => "index_email_addresses_on_emailable_id"
 
   create_table "people", :force => true do |t|
     t.string   "type"
