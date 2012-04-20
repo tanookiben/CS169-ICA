@@ -32,16 +32,17 @@
 
   <%= p.fields_for :phone_number do |pn| %>
     <div class='control-group'>
-      <%= pn.select :label, { 'Home' => 'Home',
+      <%= pn.label :info, :class => 'control-label' %> <!-- { 'Home' => 'Home',
                               'Business' => 'Business',
                               'Mobile' => 'Mobile',
-                              'Other' => 'Other',}, {}, { :class => 'control-label' } %>
+                              'Other' => 'Other',}, {}, { :class => 'control-label' } %> -->
       <div class='controls'>
-        <%= pn.text_field :number %>
+        <%= pn.text_field :info %>
       </div>
     </div>
   <% end %>
 
+  <!--
   <%= p.fields_for :email_address do |ea| %>
     <div class='control-group'>
       <%= ea.select :label, { 'Home' => 'Home',
@@ -53,7 +54,7 @@
       </div>
     </div>
   <% end %>
-
+ -->
   <div class='control-group'>
     <div class='controls'>
       <%= p.submit "#{action}" , :class => 'btn' %>

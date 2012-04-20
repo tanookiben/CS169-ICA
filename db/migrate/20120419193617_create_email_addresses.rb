@@ -3,7 +3,7 @@ class CreateEmailAddresses < ActiveRecord::Migration
     create_table :email_addresses do |t|
       t.references :emailable, :polymorphic => true
       t.string :label
-      t.string :email
+      t.string :info
 
       t.timestamps
     end

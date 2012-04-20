@@ -1,0 +1,2 @@
+<dt><%= info_type.gsub(/_/,' ').capitalize %></dt>
+<dd><%= "#{contact.send(info_type).label}: #{contact.send(info_type).info}" %></dd>

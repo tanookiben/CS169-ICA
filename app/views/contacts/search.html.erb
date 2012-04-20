@@ -1,25 +1,25 @@
 <h1>Searching for "<%= @search_term %>"</h1>
-<% if !@individuals.empty? %>
+<% if not @individuals.empty? %>
   <h3>Individuals</h3>
   <%= render :partial => "people/table", :locals => { :people => @individuals } %>
 <% end %>
-<% if !@board_members.empty? %>
+<% if not @board_members.empty? %>
   <h3>Board Members</h3>
   <%= render :partial => 'people/table', :locals => { :people => @board_members } %>
 <% end %>
-<% if !@advisors.empty? %>
+<% if not @advisors.empty? %>
   <h3>Advisors</h3>
   <%= render :partial => 'people/table', :locals => { :people => @advisors } %>
 <% end %>
-<% if !@education_companies.empty? %>
+<% if not @education_companies.empty? %>
   <h3>Education Companies</h3>
-  <%= render :partial => 'companies/table', :locals => { :companies => @education_companies } %>
+  <%#= render :partial => 'companies/table', :locals => { :companies => @education_companies } %>
 <% end %>
-<% if !@portfolio_companies.empty? %>
+<% if not @portfolio_companies.empty? %>
   <h3>Portfolio Companies</h3>
-  <%= render :partial => 'companies/table', :locals => { :companies => @portfolio_companies } %>
+  <%#= render :partial => 'companies/table', :locals => { :companies => @portfolio_companies } %>
 <% end %>
-<% if !@professional_service_providers.empty? %>
+<% if not @professional_service_providers.empty? %>
   <h3>Professional Service Providers</h3>
-  <%= render :partial => 'companies/table', :locals => { :companies => @professional_service_providers } %>
+  <%#= render :partial => 'companies/table', :locals => { :companies => @professional_service_providers } %>
 <% end %>
