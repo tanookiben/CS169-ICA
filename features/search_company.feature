@@ -4,37 +4,49 @@ Feature: An ICA admin should be able to search the global contacts list
   so that I can look up contact information.
 
 Background: all companies have been added to the database
+  Given the following individuals exist:
+  | first_name   | last_name     | type            | occupation   |
+  | John         | Smith         | Individual      | Teller       |
+  | Gregg        | Fields        | Advisor         | Storyteller  |
+  | Jack         | Mitchell      | Board           | Bankteller   |
+  | Faye         | Johnson       | Individual      | Futureteller |
+  | Colin        | Harnes        | Advisor         | Dreamteller  |
 
-  Given the following companies exist:
-  | company_name   | representative_name     | representative_role | company_type          |
-  | Trader Joes    | Chris Loranger          | Manager             | Education Company     |
-  | Intuit         | Gregg Fields            | Recruiter           | Education Company     |
-  | Wal-Mart       | Oleksiy Krupnyk         | Greeter             | Education Company     |
-  
+ And the following companies exist:
+  | name               | representative_role | representatice_id | type                          |
+  | John's Bank        | CEO                 | 1                 | portfolio                     |
+  | Faye Future        | financial manager   | 4                 | education                     |
+  | Mitchell's Bank    | teller              | 3                 | professional_service_provider |
+  | Harnes Dreamimg    | bookie              | 5                 | education                     |
+  | Random Company     |                     |                   | professional_service_provider |
+
 Senario: search by company name
 
   Given I am on the home page
-  And I fill in "search" with "Intuit"
+  And I fill in "search" with "John's Bank"
   When I press "Search"
-  Then I should see all records that contain "Intuit"
+  Then I should see all records that contain "John's Bank"
 
 Senario: Search company, but individual is deleted 
 	
   Given I am on the home page
-  And I fill in "search" with "Oleksiy"
+  And I fill in "search" with "John Smith"
   When I press "Search"
-  Then I should see all records that contain "Oleksiy"
+  Then I should see all records that contain "John Smith"
+  And I follow "John Smith"
   When I press "Delete"
+  And I should see an alert "Are you sure?"
+  When I press "OK"
   Then I should be on the home page
-  Then I fill in "search" with "Wal-Mart"
-  Then I should see all records that contain "Walmart"
-  And I should not see "Oleksiy"
+  Then I fill in "search" with "John's Bank"
+  Then I should see all records that contain "John's Bank"
+  And I should not see "John Smith"
 
 Scenario: When creating a company the name has to be filled in
   Given I am on the new company page
-  When I when the "name" field matches ""
+  When I have the "name" field match ""
   And I press "Create"
-  Then I should see "Error: must enter a name"
+  Then I should see an alert "Must enter a name"
   And I should be on the new company page
 
 Scenario: When creating a company the types can be changed

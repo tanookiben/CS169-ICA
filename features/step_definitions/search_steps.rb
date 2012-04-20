@@ -4,6 +4,18 @@ Given /the following stakeholders exist/ do |people_table|
   end
 end
 
+Given /the following individuals exist/ do |people_table|
+  people_table.hashes.each do |person|
+    @person = Person.new.update_with(person)
+  end
+end
+
+#Given /the following companies exist/ do |people_table|
+#  people_table.hashes.each do |person|
+#    @person = Company.create!(person)
+#  end
+#end
+
 Then /I should see the complete global contacts list/ do
   rows = Person.all.size
   page.has_css?("table#people_table/tbody tr", :count => rows)
