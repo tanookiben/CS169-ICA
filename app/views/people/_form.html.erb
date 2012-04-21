@@ -1,63 +1,56 @@
-<%= form_for person, :html => {:class => 'form-horizontal'} do |p| %>
+<%= form_for person, :html => {:class => 'form-horizontal'} do |f| %>
 
   <div class='control-group'>
-    <%= p.label :type, :class => 'control-label' %>
+    <%= f.label :type, :class => 'control-label' %>
     <div class='controls'>
-      <%= p.select :type, { 'Individual' => 'Individual',
+      <%= f.select :type, { 'Individual' => 'Individual',
                             'Board Member' => 'BoardMember',
                             'Advisor' => 'Advisor' } %>
     </div>
   </div>
 
   <div class='control-group'>
-    <%= p.label :first_name, :class => 'control-label' %>
+    <%= f.label :first_name, :class => 'control-label' %>
     <div class='controls'>
-      <%= p.text_field :first_name %>
+      <%= f.text_field :first_name %>
     </div>
   </div>
 
   <div class='control-group'>
-    <%= p.label :last_name, :class => 'control-label' %>
+    <%= f.label :last_name, :class => 'control-label' %>
     <div class='controls'>
-      <%= p.text_field :last_name %>
+      <%= f.text_field :last_name %>
     </div>
   </div>
 
   <div class='control-group'>
-    <%= p.label :occupation, :class => 'control-label' %>
+    <%= f.label :occupation, :class => 'control-label' %>
     <div class='controls'>
-      <%= p.text_field :occupation %>
+      <%= f.text_field :occupation %>
     </div>
   </div>
 
-  <%= p.fields_for :phone_number do |pn| %>
-    <div class='control-group'>
-      <%= pn.label :info, :class => 'control-label' %> <!-- { 'Home' => 'Home',
-                              'Business' => 'Business',
-                              'Mobile' => 'Mobile',
-                              'Other' => 'Other',}, {}, { :class => 'control-label' } %> -->
-      <div class='controls'>
-        <%= pn.text_field :info %>
-      </div>
-    </div>
+  <%= f.fields_for :phone_numbers do |builder| %>
+    <%= render 'phone_number_fields', :f => builder %>
   <% end %>
+  <%= link_to_add_fields "Add Phone Number", f, :phone_numbers %>
 
   <!--
-  <%= p.fields_for :email_address do |ea| %>
+  <%#= f.fields_for :email_address do |builder| %>
     <div class='control-group'>
-      <%= ea.select :label, { 'Home' => 'Home',
+      <%#= ea.select :label, { 'Home' => 'Home',
                               'Business' => 'Business',
                               'Mobile' => 'Mobile',
                               'Other' => 'Other',}, {}, { :class => 'control-label' } %>
       <div class='controls'>
-        <%= ea.text_field :email %>
+        <%#= ea.text_field :email %>
       </div>
     </div>
-  <% end %>
+  <%# end %>
  -->
   <div class='control-group'>
     <div class='controls'>
-      <%= p.submit "#{action}" , :class => 'btn' %>
+      <%= f.submit "#{action}" , :class => 'btn' %>
     </div>
   </div>
 
