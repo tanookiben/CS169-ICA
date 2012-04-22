@@ -12,7 +12,7 @@ group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
-  gem 'therubyracer'
+  #gem 'therubyracer'
 end
 
 group :test, :development do
