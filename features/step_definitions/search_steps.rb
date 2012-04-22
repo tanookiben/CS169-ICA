@@ -10,11 +10,11 @@ Given /the following individuals exist/ do |people_table|
   end
 end
 
-#Given /the following companies exist/ do |people_table|
-#  people_table.hashes.each do |person|
-#    @person = Company.create!(person)
-#  end
-#end
+Given /the following companies exist/ do |companies_table|
+  companies_table.hashes.each do |company|
+    @company = Company.create!(company)
+  end
+end
 
 Then /I should see the complete global contacts list/ do
   rows = Person.all.size

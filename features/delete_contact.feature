@@ -16,7 +16,7 @@ Background: all contacts have been added to the database
 
 
   And the following companies exist:
-  | name               | representative_role | representatice_id | type                          |
+  | name               | representative_role | representative_id | type                          |
   | John's Bank        | CEO                 | 1                 | portfolio                     |
   | Faye Future        | financial manager   | 4                 | education                     |
   | Mitchell's Bank    | teller              | 3                 | professional_service_provider |
