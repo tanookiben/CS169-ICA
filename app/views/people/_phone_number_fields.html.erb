@@ -1,0 +1,13 @@
+<div class='fields'>
+  <div class='control-group'>
+    <%#= f.label :info, "Label", :class => 'control-label'%>
+    <%= f.select :label, { 'Home' => 'Home',
+                           'Business' => 'Business',
+                           'Mobile' => 'Mobile',
+                           'Other' => 'Other' }, {}, { :class => 'control-label' } %>
+    <div class='controls'>
+      <%= f.text_field :info %>
+      <%= link_to_remove_fields "remove", f %>
+    </div>
+  </div>
+</div>

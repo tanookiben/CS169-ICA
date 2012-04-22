@@ -20,7 +20,8 @@ class PeopleController < ApplicationController
 
   def new
     @person = Person.new
-    @person.build_phone_number
+    3.times {@person.phone_numbers.build}
+#    @person.build_email_address
   end
 
   def edit

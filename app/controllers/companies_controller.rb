@@ -4,10 +4,11 @@ class CompaniesController < ApplicationController
     @company = Company.new
     if @company.update_with(params[:company])
       flash[:notice] = "#{@company.name} was created."
+      redirect_to company_path(@company)
     else 
       flash[:error] = "Cannot create new company. #{@company.errors.messages}"
+      redirect_to new_company_path
     end
-    redirect_to company_path(@company)
   end
 
   def new
