@@ -143,9 +143,9 @@ describe CompaniesController do
       end.should change(Company, :count).by(-1)
     end
     
-    it "should redirect to the companies page" do
+    it "should redirect to the root page" do
       delete :destroy, :id => @company
-      response.should redirect_to(companies_path)
+      response.should redirect_to(root_path)
     end
   end
 end

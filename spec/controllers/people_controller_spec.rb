@@ -146,9 +146,9 @@ describe PeopleController do
       end.should change(Person, :count).by(-1)
     end
     
-    it "should redirect to the contacts page" do
+    it "should redirect to the root page" do
       delete :destroy, :id => @person
-      response.should redirect_to(search_path)
+      response.should redirect_to(root_path)
     end
   end
 

@@ -12,14 +12,17 @@ group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
-  gem 'therubyracer'
+  #gem 'therubyracer'
+end
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
 end
 
 group :test, :development do
   gem 'minitest', '>= 2.12'
   gem 'sqlite3'
-  gem 'cucumber-rails'
-  gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
