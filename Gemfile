@@ -21,7 +21,7 @@ group :test do
 end
 
 group :test, :development do
-  gem 'minitest', '>= 2.10'
+  gem 'minitest', '>= 2.12'
   gem 'sqlite3'
   gem 'database_cleaner'
   gem 'capybara'
@@ -37,6 +37,9 @@ group :production do
 end
 
 gem 'jquery-rails'
+
+gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate', '0.0.5'
 
 # Use unicorn as the web server
 # gem 'unicorn'

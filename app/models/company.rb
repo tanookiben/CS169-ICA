@@ -8,6 +8,7 @@ class Company < ActiveRecord::Base
 
   validates :type, :inclusion => { :in => %w(EducationCompany PortfolioCompany ProfessionalServiceProvider) }
   validates :name, :presence => true
+  validates :representative_role, :presence => true
   validates_associated :phone_numbers
 
   # Mixes in the update_with method since it is shared between this an Company

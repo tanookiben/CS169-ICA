@@ -12,6 +12,7 @@ Background: all companies have been added to the database
   | Faye         | Johnson       | Individual      | Futureteller |
   | Colin        | Harnes        | Advisor         | Dreamteller  |
 
+<<<<<<< HEAD
  And the following companies exist:
   | name               | representative_role | representative_id | type                          |
   | John's Bank        | CEO                 | 1                 | portfolio                     |
@@ -20,6 +21,14 @@ Background: all companies have been added to the database
   | Harnes Dreamimg    | bookie              | 5                 | education                     |
   | Random Company     |                     |                   | professional_service_provider |
 
+=======
+  Given the following companies exist:
+  | company_name   | representative_name     | representative_role | company_type          |
+  | Trader Joes    | Chris Loranger          | Manager             | Education Company     |
+  | Intuit         | Gregg Fields            | Recruiter           | Education Company     |
+  | Wal-Mart       | Oleksiy Krupnyk         | Greeter             | Education Company     |
+  
+>>>>>>> master
 Scenario: search by company name
 
   Given I am on the home page

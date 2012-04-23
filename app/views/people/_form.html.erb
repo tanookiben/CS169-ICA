@@ -37,7 +37,7 @@
     <%= link_to_add_fields "Add Phone Number", p, :phone_numbers %>
   </p>
 
-  <%= p.fields_for :email_address do |builder| %>
+  <%= p.fields_for :email_addresses do |builder| %>
     <%= render 'shared/email_address_fields', :f => builder %>
   <% end %>
   <p>
