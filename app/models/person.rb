@@ -6,7 +6,7 @@ class Person < ActiveRecord::Base
 
   has_many :companies, :foreign_key => "representative_id"
 
-  validates :type, :inclusion => { :in => %w(Individual BoardMember Advisor) }
+  #validates :type, :inclusion => { :in => %w(Individual BoardMember Advisor) }
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :occupation, :presence => true
