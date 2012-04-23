@@ -29,17 +29,23 @@
       <%= c.text_field :representative_role %>
     </div>
   </div>
-  <%= c.fields_for :phone_number do |pn| %>
-    <div class='control-group'>
-      <%= pn.select :label, { 'Home' => 'Home',
+
+  <%= c.fields_for :phone_numbers do |builder| %>
+    <%= render 'shared/phone_number_fields', :f => builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Phone Number", c, :phone_numbers %>
+<!--    <div class='control-group'>
+      <%#= pn.select :label, { 'Home' => 'Home',
                               'Business' => 'Business',
                               'Mobile' => 'Mobile',
                               'Other' => 'Other',}, {}, { :class => 'control-label' } %>
       <div class='controls'>
-        <%= pn.text_field :number %>
+        <%#= pn.text_field :number %>
       </div>
     </div>
-  <% end %>
+  <%# end %>
+  -->
+
   <div class='control-group'>
     <div class='controls'>
       <%= c.submit "#{action}" , :class => 'btn' %>
