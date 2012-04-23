@@ -41,12 +41,12 @@ describe Person do
   
   describe "search names" do
     it "should return successful matches for a suitable name query" do
-      @results = Person.find_by_full_name("TestBen Hsieh")
+      @results = Person.search("TestBen Hsieh")
       @results.should == [@ben]
     end
     
     it "should not return any matches for an unsuitable name query" do
-      @results = Person.find_by_full_name("Ben Hsieh")
+      @results = Person.search("DoesNotExist")
       @results.should == []
     end
   end
