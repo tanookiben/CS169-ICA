@@ -13,7 +13,7 @@ module Contact
     else
       updated_contact = self
     end
-    updated_contact.update_attributes(attributes.except(:type))
+    updated_contact.update_attributes(attributes.except(:type, :email_address))
     if updated_contact.invalid?
       updated_contact.errors.each do |attr, msg|
         self.errors.add(attr, msg)

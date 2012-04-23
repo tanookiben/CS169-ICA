@@ -20,7 +20,7 @@ Background: all individuals have been added to the database
   | Mitchell's Bank    | teller              | 3                 | ProfessionalServiceProvider |
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
 
-@wip  
+
 Scenario: Add a new individual
 
   Given I am on the home page
@@ -34,7 +34,7 @@ Scenario: Add a new individual
   Then I should be on the "Jake Tyler" individual page
   And I should see "Success!"
 
-@wip  
+ 
 Scenario: Add a new company
 
   Given I am on the home page
@@ -48,7 +48,7 @@ Scenario: Add a new company
   Then I should be on the "Cutesy" company page
   And I should see "Success!"
 
-@wip  
+
 Scenario: Cannot add a new individual if missing info
 
   Given I am on the home page
@@ -61,7 +61,7 @@ Scenario: Cannot add a new individual if missing info
   Then I should be on the create_individual page
   And I should see "Error!"
 
-@wip
+
 Scenario: Cannot add a new company if missing name
 
   Given I am on the home page
@@ -74,6 +74,7 @@ Scenario: Cannot add a new company if missing name
   Then I should be on the create_company page
   And I should see "Error!"
   
+
 @wip
 Scenario: Can still add a new company if missing representative information
 
