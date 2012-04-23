@@ -11,14 +11,14 @@ Background: all companies have been added to the database
   | Intuit         | Gregg Fields            | Recruiter           | Education Company     |
   | Wal-Mart       | Oleksiy Krupnyk         | Greeter             | Education Company     |
   
-Senario: search by company name
+Scenario: search by company name
 
   Given I am on the home page
   And I fill in "search" with "Intuit"
   When I press "Search"
   Then I should see all records that contain "Intuit"
 
-Senario: Search company, but individual is deleted 
+Scenario: Search company, but individual is deleted 
 	
   Given I am on the home page
   And I fill in "search" with "Oleksiy"
