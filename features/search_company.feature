@@ -29,12 +29,12 @@ Scenario: search by company name
 
 Scenario: Search company, but individual is deleted 
 	
-  Given I am on the home page
-  And I fill in "search" with "John Smith"
-  When I press "Search"
-  Then I should see all records that contain "John Smith"
-  And I follow "John Smith"
-  #Given I am on the "John Smith" page
+#  Given I am on the home page
+#  And I fill in "search" with "John Smith"
+#  When I press "Search"
+#  Then I should see all records that contain "John Smith"
+#  And I follow "John"
+  Given I am on the "John Smith" individual page
   When I press "Delete"
   And I should see an alert "John Smith is the representative for John's Bank. Are you sure you want to delete individual?"
   When I press "OK"
@@ -71,4 +71,4 @@ Scenario: When creating a company the types can be changed
   When I press "Search"
   Then I should see all records that contain "Fake Name"
   And I should see "Portfolio Company"
- 
+
