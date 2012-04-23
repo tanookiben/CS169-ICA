@@ -3,7 +3,7 @@
 <h3><%= "#{@company.representative_role}: " %><%= link_to @company.representative.full_name, person_path(@company.representative), :method => :get %></h3>
 <dl>
   <%= render :partial => 'shared/show_contact_infos', :locals => { :contact => @company, :info_type => 'phone_numbers' } %>
-  <%#= render :partial => 'show_email_addresses', :locals => { :person => @person } %>
+  <%= render :partial => 'shared/show_contact_infos', :locals => { :contact => @company, :info_type => 'email_addresses' } %>
   <%#= render :partial => 'show_physical_addresses', :locals => { :person => @person } %>
 </dl>
 <%= link_to 'Edit', edit_company_path(@company), :class => 'btn' %>
