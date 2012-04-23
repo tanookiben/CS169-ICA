@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20120419193617) do
     t.integer  "callable_id"
     t.string   "callable_type"
     t.string   "label"
-    t.string   "info"
+    t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

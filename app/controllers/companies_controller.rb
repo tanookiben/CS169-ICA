@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
-    @company.build_phone_number
+    #@company.build_phone_number
   end
 
   def edit
