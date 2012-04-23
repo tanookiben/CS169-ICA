@@ -193,7 +193,7 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   launchy
-  minitest (>= 2.10)
+  minitest (>= 2.12)
   pg
   rails (= 3.1.0)
   rspec-rails
