@@ -1,8 +1,8 @@
 class Person < ActiveRecord::Base
   has_many :phone_numbers, :as => :callable, :dependent => :destroy
-#  has_many :email_addresses, :as => :emailable, :dependent => :destroy
-  accepts_nested_attributes_for :phone_numbers, :reject_if => lambda { |a| a[:info].blank? }, :allow_destroy => true
-#  accepts_nested_attributes_for :email_address
+  has_many :email_addresses, :as => :emailable, :dependent => :destroy
+  accepts_nested_attributes_for :phone_numbers, :allow_destroy => true
+  accepts_nested_attributes_for :email_addresses, :allow_destroy => true
 
   has_many :companies, :foreign_key => "representative_id"
 
@@ -18,6 +18,7 @@ class Person < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+  alias :name :full_name
 
   def self.search(search_term)
     if search_term.match(" ")

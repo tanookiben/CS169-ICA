@@ -4,7 +4,6 @@
       <th>#</th>
       <th>Name</th>
       <th>Representative</th>
-      <th>Phone Number</th>
     </tr>
   </thead>
   <tbody>
@@ -17,11 +16,11 @@
         <%= "#{company.representative_role}: #{company.representative.full_name}" %>
       <% end %>
       </td>
-      <td>
-      <% if company.phone_number %>
-        <%= "#{company.phone_number.label}: #{company.phone_number.info}" %>
-      <% end %>
-      </td>
+<!--      <td>
+      <%# if company.phone_number %>
+        <%#= "#{company.phone_number.label}: #{company.phone_number.info}" %>
+      <%# end %>
+      </td> -->
     </tr>
   <% end %>
   </tbody>

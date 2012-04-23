@@ -5,8 +5,8 @@
   <h3>Works for <%= link_to company.name, company_path(company), :method => :get %> as a <%= company.representative_role %></h3>
 <% end %>
 <dl>
-  <%#= render :partial => 'shared/show_phone_numbers', :locals => { :contact => @person, :contact_information => 'phone_number' } %>
-  <%#= render :partial => 'shared/show_email_addresses', :locals => { :contact => @person } %>
+  <%= render :partial => 'shared/show_contact_infos', :locals => { :contact => @person, :info_type => 'phone_numbers' } %>
+  <%= render :partial => 'shared/show_contact_infos', :locals => { :contact => @person, :info_type => 'email_addresses' } %>
   <%#= render :partial => 'show_physical_addresses', :locals => { :person => @person } %>
 </dl>
 <%= link_to 'Edit', edit_person_path(@person), :class => 'btn' %>
