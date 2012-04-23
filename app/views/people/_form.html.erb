@@ -31,7 +31,7 @@
   </div>
 
   <%= f.fields_for :phone_numbers do |builder| %>
-    <%= render 'phone_number_fields', :f => builder %>
+    <%= render 'shared/phone_number_fields', :f => builder %>
   <% end %>
   <%= link_to_add_fields "Add Phone Number", f, :phone_numbers %>
 
