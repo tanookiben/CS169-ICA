@@ -3,8 +3,11 @@ class PeopleController < ApplicationController
   def index
     @search_term = params[:search]
     @individuals = @search_term ? Individual.search(@search_term) : Individual.all
+    # @individuals = @individuals.paginate(page: params[:page])
     @board_members = @search_term ? BoardMember.search(@search_term) : BoardMember.all
+    # @board_members = @board_members.paginate(page: params[:page])
     @advisors = @search_term ? Advisor.search(@search_term) : Advisor.all
+    # @advisors = @advisors.paginate(page: params[:page])
   end
 
   def create
