@@ -44,8 +44,8 @@ Scenario: deleting a company without representative information - confirm
   Then I should see an alert "Are you sure?"
   When I press "OK"
   Then I should be on the home page
-  
-  Scenario: deleting a company without representative information - cancel
+
+Scenario: deleting a company without representative information - cancel
   Given I am on the "Faye Future" page
   When I press "Delete"
   Then I should see an alert "Are you sure?"

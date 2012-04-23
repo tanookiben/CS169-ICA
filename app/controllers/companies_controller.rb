@@ -4,15 +4,15 @@ class CompaniesController < ApplicationController
     @company = Company.new
     if @company.update_with(params[:company])
       flash[:notice] = "#{@company.name} was created."
+      redirect_to company_path(@company)
     else 
-      flash[:error] = "Cannot create new company. #{@company.errors.messages}"
+      flash[:error] = "Cannot create new company. #{@company.errors.full_messages}"
+      redirect_to new_company_path
     end
-    redirect_to company_path(@company)
   end
 
   def new
     @company = Company.new
-    @company.build_phone_number
   end
 
   def edit
@@ -28,7 +28,7 @@ class CompaniesController < ApplicationController
     if @company.update_with(params[:"#{@company.type.underscore}"])
       flash[:notice] = "#{@company.name} was updated."
     else
-      flash[:error] = "Cannot update #{@company.name}. #{@company.errors.messages}"
+      flash[:error] = "Cannot update #{@company.name}. #{@company.errors.full_messages}"
     end
     redirect_to company_path(@company)
   end
@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @company.destroy
     flash[:notice] = "Company '#{@company.name}' was deleted."
-    redirect_to companies_path
+    redirect_to root_path
   end
 
 end

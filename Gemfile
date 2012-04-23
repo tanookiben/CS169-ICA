@@ -15,11 +15,14 @@ group :assets do
   gem 'therubyracer'
 end
 
+group :test do
+  gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
+end
+
 group :test, :development do
   gem 'minitest', '>= 2.10'
   gem 'sqlite3'
-  gem 'cucumber-rails'
-  gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'

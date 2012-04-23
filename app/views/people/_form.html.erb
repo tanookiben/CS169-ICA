@@ -30,17 +30,19 @@
     </div>
   </div>
 
-  <%= p.fields_for :phone_number do |pn| %>
-    <div class='control-group'>
-      <%= pn.select :label, { 'Home' => 'Home',
-                              'Business' => 'Business',
-                              'Mobile' => 'Mobile',
-                              'Other' => 'Other',}, {}, { :class => 'control-label' } %>
-      <div class='controls'>
-        <%= pn.text_field :number %>
-      </div>
-    </div>
+  <%= p.fields_for :phone_numbers do |builder| %>
+    <%= render 'shared/phone_number_fields', :f => builder %>
   <% end %>
+  <p>
+    <%= link_to_add_fields "Add Phone Number", p, :phone_numbers %>
+  </p>
+
+  <%= p.fields_for :email_address do |builder| %>
+    <%= render 'shared/email_address_fields', :f => builder %>
+  <% end %>
+  <p>
+    <%= link_to_add_fields "Add Email Address", p, :email_addresses %>
+  </p>
 
   <div class='control-group'>
     <div class='controls'>

@@ -5,81 +5,37 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-PHONE_LABELS = ['Mobile', 'Business', 'Other', 'Home']
+FIRST_NAME = %w(Mike Gregory Tammy William Steve Gerald Bruce Melanie Nathan)
+LAST_NAME = %w(Vermillion Topping Ellinger Sandler Cook Lemaster Desai Kindred Cortes)
+OCCUPATION = %w(Harvest\ Manager Fire\ Sprinkler\ Installer Fish\ and\ Wildlife\ Warden Oxygen\ Therapy\ Technician Bar\ Back Clerk\ Typist Loan\ Teller Radiation\ Engineer Wildlife\ Veternarian)
 
-INDIVIDUALS = [
-  {:first_name => 'Mike', :last_name => 'Vermillion', :occupation => 'Harvest Manager'},
-  {:first_name => 'Gregory', :last_name => 'Topping', :occupation => 'Fire Sprinkler Installer'},
-  {:first_name => 'Tammy', :last_name => 'Ellinger', :occupation => 'Fish and Wildlife Warden'},
-  {:first_name => 'William', :last_name => 'Sandler', :occupation => 'Oxygen Therapy Technician'},
-  {:first_name => 'Steve', :last_name => 'Cook', :occupation => 'Bar Back'},
-  {:first_name => 'Isabel', :last_name => 'Crabb', :occupation => 'Applied Psychology Professor'},
-  {:first_name => 'Beth', :last_name => 'Chisholm', :occupation => 'Body and Frame Technician'},
-  {:first_name => 'Ann', :last_name => 'Bell', :occupation => 'Piano Tuner'},
-  {:first_name => 'Jimmy', :last_name => 'Ferraro', :occupation => 'Office Clerk'},
-  {:first_name => 'Erica', :last_name => 'Lovell', :occupation => 'Public Relations Officer'},
-  {:first_name => 'Norman', :last_name => 'Emery', :occupation => 'Locomotive Inspector'},
-  {:first_name => 'Margaret', :last_name => 'Darby', :occupation => 'Karate Instructor'},
-  {:first_name => 'Barbara', :last_name => 'Theisen', :occupation => 'Flight Communications Operator'},
-  {:first_name => 'Louis', :last_name => 'Bates', :occupation => 'Photojournalist'},
-  {:first_name => 'Julia', :last_name => 'Herman', :occupation => 'Oceanographer'},
-]
+(0..4).each do
+  Individual.create(:first_name => FIRST_NAME.sample, :last_name => LAST_NAME.sample, :occupation => OCCUPATION.sample)
+end
 
-BOARDMEMBERS = [
-  {:first_name => 'Gerald', :last_name => 'Lemaster', :occupation => 'Clerk Typist'},
-  {:first_name => 'Bruce', :last_name => 'Desai', :occupation => 'Loan Teller'},
-]
+(0..1).each do
+  BoardMember.create(:first_name => FIRST_NAME.sample, :last_name => LAST_NAME.sample, :occupation => OCCUPATION.sample)
+  Advisor.create(:first_name => FIRST_NAME.sample, :last_name => LAST_NAME.sample, :occupation => OCCUPATION.sample)
+end
 
-ADVISORS = [
-  {:first_name => 'Melanie', :last_name => 'Kindred', :occupation => 'Radiation Engineer'},
-  {:first_name => 'Nathan', :last_name => 'Cortes', :occupation => 'Wildlife Veterinarian'}
-]
+NAME = %w(Translation\ Renderers Helpful\ Sows Key\ Community\ Inc. Total\ Information Network\ Community  Indicative\ Data)
+ROLE = %w(Secretary Warden Manager Supervisor Hiring\ Manager Technician)
 
-EDUCATIONCOMPANIES = [
-  {:name => 'Translation Renderers', :representative_id => '1', :representative_role => 'Secretary'},
-  {:name => 'Helpful Sows', :representative_id => '2', :representative_role => 'Warden'}
-]
+(0..1).each do
+  EducationCompany.create(:name => NAME.sample, :representative => Individual.find(1+rand(5)), :representative_role => ROLE.sample)
+  PortfolioCompany.create(:name => NAME.sample, :representative => Individual.find(1+rand(5)), :representative_role => ROLE.sample)
+  ProfessionalServiceProvider.create(:name => NAME.sample, :representative => Individual.find(1+rand(5)), :representative_role => ROLE.sample)
+end
 
-PORTFOLIOCOMPANIES = [
-  {:name => 'Key Community Inc.', :representative_id => '3', :representative_role => 'Manager'},
-  {:name => 'Total Information', :representative_id => '4', :representative_role => 'Supervisor'}
-]
-
-PROFESSIONALSERVICEPROVDERS = [
-  {:name => 'Network Community', :representative_id => '5', :representative_role => 'Manager'},
-  {:name => 'Indicative Data', :representative_id => '6', :representative_role => 'Supervisor'}
-]
-
+LABELS = %w(Mobile Business Other Home)
 PHONE_NUMBER_GENERATOR = Random.new
 
-INDIVIDUALS.each do |i|
-  Individual.create(i)
-end
+#Person.all.each do |p|
+#  p.create_phone_number(:label => LABELS[rand(4)], :info => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
+#  p.create_email_address(:label => LABELS[rand(4)], :info => "foo")
+#end
 
-BOARDMEMBERS.each do |bm|
-  BoardMember.create(bm)
-end
-
-ADVISORS.each do |a|
-  Advisor.create(a)
-end
-
-EDUCATIONCOMPANIES.each do |ec|
-  EducationCompany.create(ec)
-end
-
-PORTFOLIOCOMPANIES.each do |pc|
-  PortfolioCompany.create(pc)
-end
-
-PROFESSIONALSERVICEPROVDERS.each do |psp|
-  ProfessionalServiceProvider.create(psp)
-end
-
-Person.all.each do |p|
-  p.create_phone_number(:label => PHONE_LABELS[rand(4)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
-end
-
-Company.all.each do |c|
-  c.create_phone_number(:label => PHONE_LABELS[rand(3)], :number => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
-end
+#Company.all.each do |c|
+#  c.create_phone_number(:label => LABELS[rand(3)], :info => PHONE_NUMBER_GENERATOR.rand(1000000000..9999999999))
+#  c.create_email_address(:label => LABELS[rand(3)], :info => "bar")
+#end
