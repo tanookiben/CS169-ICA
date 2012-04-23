@@ -42,8 +42,8 @@ Scenario: deleting a company without representative information - confirm
   Then I should see an alert "Are you sure?"
   When I press "OK"
   Then I should be on the home page
-  
-  Scenario: deleting a company without representative information - cancel
+
+Scenario: deleting a company without representative information - cancel
   Given I am on the "Faye Future" page
   When I press "Delete"
   Then I should see an alert "Are you sure?"
@@ -73,7 +73,7 @@ Scenario: deleting a company that is linked to a representative - confirm and de
   Then I should be on the home page
   And I should see "Do you want to delete representative record as well?"
   When I press "Yes"
-  I should be on the "Jack Mitchell" page
+  Then I should be on the "Jack Mitchell" page
   
 Scenario: deleting a company that is linked to a representative - confirm and NOT delete rep
   Given I am on the "Mitchell's Bank" page
@@ -83,7 +83,7 @@ Scenario: deleting a company that is linked to a representative - confirm and NO
   Then I should be on the home page
   And I should see "Do you want to delete representative record as well?"
   When I press "No"
-  I should be on the home page
+  Then I should be on the home page
   
 Scenario: deleting a company that is linked to a representative - cancel
   Given I am on the "Mitchell's Bank" page

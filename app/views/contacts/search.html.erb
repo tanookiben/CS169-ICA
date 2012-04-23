@@ -1,19 +1,31 @@
 <h1>Searching for "<%= @search_term %>"</h1>
-<h3>Individuals <%= link_to 'New Individual', new_person_path, :class => 'btn' %></h3>
-<%= render :partial => "people/table", :locals => { :people => @individuals } %>
-<%= will_paginate @individuals, :param_name => :individuals_page %>
-<h3>Board Members <%= link_to 'New Board Member', new_person_path, :class => 'btn' %></h3>
-<%= render :partial => 'people/table', :locals => { :people => @board_members } %>
-<%= will_paginate @board_members, :param_name => :board_members_page %>
-<h3>Advisors <%= link_to 'New Advisor', new_person_path, :class => 'btn' %></h3>
-<%= render :partial => 'people/table', :locals => { :people => @advisors } %>
-<%= will_paginate @advisors, :param_name => :advisors_page %>
-<h3>Education Companies <%= link_to 'New Education Company', new_company_path, :class => 'btn' %></h3>
-<%= render :partial => 'companies/table', :locals => { :companies => @education_companies } %>
-<%= will_paginate @education_companies, :param_name => :education_companies_page %>
-<h3>Portfolio Companies <%= link_to 'New Portfolio Company', new_company_path, :class => 'btn' %></h3>
-<%= render :partial => 'companies/table', :locals => { :companies => @portfolio_companies } %>
-<%= will_paginate @portfolio_companies, :param_name => :portfolio_companies_page %>
-<h3>Professional Service Providers <%= link_to 'New Professional Service Provider', new_company_path, :class => 'btn' %></h3>
-<%= render :partial => 'companies/table', :locals => { :companies => @professional_service_providers } %>
-<%= will_paginate @professional_service_providers, :param_name => :professaional_service_providers_page %>
+<% if not @individuals.empty? %>
+  <h3>Individuals</h3>
+  <%= render :partial => "people/table", :locals => { :people => @individuals } %>
+  <%= will_paginate @individuals, :param_name => :individuals_page %>
+<% end %>
+<% if not @board_members.empty? %>
+  <h3>Board Members</h3>
+  <%= render :partial => 'people/table', :locals => { :people => @board_members } %>
+  <%= will_paginate @board_members, :param_name => :board_members_page %>
+<% end %>
+<% if not @advisors.empty? %>
+  <h3>Advisors</h3>
+  <%= render :partial => 'people/table', :locals => { :people => @advisors } %>
+  <%= will_paginate @advisors, :param_name => :advisors_page %>
+<% end %>
+<% if not @education_companies.empty? %>
+  <h3>Education Companies</h3>
+  <%= render :partial => 'companies/table', :locals => { :companies => @education_companies } %>
+  <%= will_paginate @education_companies, :param_name => :education_companies_page %>
+<% end %>
+<% if not @portfolio_companies.empty? %>
+  <h3>Portfolio Companies</h3>
+  <%= render :partial => 'companies/table', :locals => { :companies => @portfolio_companies } %>
+  <%= will_paginate @portfolio_companies, :param_name => :portfolio_companies_page %>
+<% end %>
+<% if not @professional_service_providers.empty? %>
+  <h3>Professional Service Providers</h3>
+  <%= render :partial => 'companies/table', :locals => { :companies => @professional_service_providers } %>
+  <%= will_paginate @professional_service_providers, :param_name => :professaional_service_providers_page %>
+<% end %>
