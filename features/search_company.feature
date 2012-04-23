@@ -44,14 +44,14 @@ Scenario: Search company, but individual is deleted
   And I should not see "John Smith"
 
 Scenario: When creating a company the name has to be filled in
-  Given I am on the new company page
+  Given I am on the create_company page
   And I fill in "company_name" with ""
   And I press "Create"
   Then I should see an alert "Must enter a name"
   And I should be on the new company page
 
 Scenario: When creating a company the types can be changed
-  Given I am on the new company page
+  Given I am on the create_company page
   And I fill in "company_name" with "Fake Name"
   And I select "Education Company" from "company_type"
   And I fill in "full_name" with "John Smith"
