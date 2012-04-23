@@ -7,25 +7,25 @@ Background: all contacts have been added to the database
 
   Given the following individuals exist:
   | id  | first_name   | last_name     | type            | occupation   |
-  | 1   | John         | Smith         | Entreprenuer    | Teller       |
-  | 2   | Gregg        | Fields        | Bank            | Storyteller  |
-  | 3   | Jack         | Mitchell      | Board           | Bankteller   |
-  | 4   | Faye         | Johnson       | Entrepreneur    | Futureteller |
+  | 1   | John         | Smith         | Individual      | Teller       |
+  | 2   | Gregg        | Fields        | Advisor         | Storyteller  |
+  | 3   | Jack         | Mitchell      | BoardMember     | Bankteller   |
+  | 4   | Faye         | Johnson       | Individual      | Futureteller |
   | 5   | Colin        | Harnes        | Advisor         | Dreamteller  |
   
   And the following companies exist:
-  | name               | representative_role | representatice_id | type                          |
-  | John's Bank        | CEO                 | 1                 | portfolio                     |
-  | Faye Future        | financial manager   | 4                 | education                     |
-  | Mitchell's Bank    | teller              | 3                 | professional_service_provider |
-  | Harnes Dreamimg    | bookie              | 5                 | education                     |
+  | name               | representative_role | representative_id | type                        |
+  | John's Bank        | CEO                 | 1                 | PortfolioCompany            |
+  | Faye Future        | financial manager   | 4                 | EducationCompany            |
+  | Mitchell's Bank    | teller              | 3                 | ProfessionalServiceProvider |
+  | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
 
 
 Scenario: search with empty string should return the entire contacts list
 
-   Given I am on the home page
-   When I press "Search"
-   Then I should see the complete global contacts list containing all individuals and companies 
+  Given I am on the home page
+  When I press "Search"
+  Then I should see the complete global contacts list containing all individuals and companies 
 
 Scenario: search with non-empty string should return records that contain the string (in any field)
 

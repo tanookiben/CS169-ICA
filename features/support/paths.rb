@@ -15,12 +15,18 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-    when /^the "(.*)" page$/i
-      person_path(Person.find_by_full_name($1).first)
+    when /^the "(.*)" individual page$/i
+      person_path(Person.search($1).first)
+    when /^the "(.*)" company page$/i
+      company_path(Company.search($1).first)
     when /^the edit page for "(.*)"$/i
-      edit_person_path(Person.find_by_full_name($1).first)
-    when /^the create page$/
+      edit_person_path(Person.search($1).first)
+    when /^the company edit page for "(.*)"$/i
+      edit_company_path(Company.search($1).first)
+    when /^the create_individual page$/
       new_person_path
+    when /^the create_company page$/
+      new_company_path
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
