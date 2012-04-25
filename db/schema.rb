@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20120423035620) do
     t.integer  "emailable_id"
     t.string   "emailable_type"
     t.string   "label"
-    t.string   "info"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20120423035620) do
     t.integer  "callable_id"
     t.string   "callable_type"
     t.string   "label"
-    t.integer  "number"
+    t.string   "number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

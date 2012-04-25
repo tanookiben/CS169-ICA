@@ -44,6 +44,13 @@
     <%= link_to_add_fields "Add Email Address", p, :email_addresses %>
   </p>
 
+  <%= p.fields_for :notes do |builder| %>
+    <%= render 'shared/note_fields', :f => builder %>
+  <% end %>
+  <p>
+    <%= link_to_add_fields "Add Note", p, :notes %>
+  </p>
+
   <div class='control-group'>
     <div class='controls'>
       <%= p.submit "#{action}" , :class => 'btn' %>
