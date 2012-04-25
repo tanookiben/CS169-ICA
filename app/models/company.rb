@@ -19,4 +19,8 @@ class Company < ActiveRecord::Base
       where('name LIKE ?', "%#{search_term}%")
     end
   end
+
+  def representative_name
+    representative.name
+  end
 end

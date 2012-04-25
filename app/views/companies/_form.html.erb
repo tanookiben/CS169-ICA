@@ -17,9 +17,9 @@
   </div>
 
   <div class='control-group'>
-    <%= c.label :representative_id, :class => 'control-label' %>
+    <%= c.label :representative_name, :class => 'control-label' %>
     <div class='controls'>
-      <%= c.text_field :representative_id %>
+      <%= c.text_field :representative_name, :"data-provide" => "typeahead", :"data-source" => "#{%w(foo bar)}" %>
     </div>
   </div>
 
