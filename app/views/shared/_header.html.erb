@@ -1,4 +1,4 @@
-<div class='navbar'>
+<div class='navbar navbar-fixed-top'>
   <div class='navbar-inner'>
     <div class='container'>
       <%= link_to 'Inner City Advisors', root_path, :class => 'brand' %>
@@ -6,8 +6,12 @@
         <%= text_field_tag 'search', nil,  :class => 'search-query span3' %>
         <%= submit_tag 'Search', :class => "btn", :id => 'Search'  %>
       <% end %>
+      <ul class='nav'>
+        <li><%= link_to 'New Person', new_person_path %></li>
+        <li><%= link_to 'New Company', new_company_path %></li>
+      </ul>
       <ul class='nav pull-right'>
-        <li><a href='#'>About</a></li>
+        <li><a href='#'>Faq</a></li>
         <li class='divider-vertical'></li>
         <li><a href='#'>Log In</a></li>
       </ul>
