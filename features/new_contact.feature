@@ -21,12 +21,16 @@ Background: all individuals have been added to the database
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
 
 
-Scenario: Add a new individual
+Scenario: Add a new individual 
 
   Given I am on the home page
-  When I follow "here"
+  When I press "Add New Person"
   Then I should be on the create_individual page
   When I select "Individual" from "person[type]"
+  And I add a phone
+  Then "phone label" should be selected for "Business"
+  And I add an email
+  Then "email label" should be selected for "Business"
   And I fill in "person[first_name]" with "Jake"
   And I fill in "person[last_name]" with "Tyler"
   And I fill in "person[occupation]" with "Priceteller"
@@ -38,9 +42,13 @@ Scenario: Add a new individual
 Scenario: Add a new company
 
   Given I am on the home page
-  When I follow "Or click here"
+  When I press "Add New Company"
   Then I should be on the create_company page
   When I select "Portfolio Company" from "company[type]"
+  And I add a phone
+  Then "phone label" should be selected for "Business"
+  And I add an email
+  Then "email label" should be selected for "Business"
   And I fill in "company[name]" with "Cutesy"
   And I fill in "company[representative_role]" with "Cutie"
   And I fill in "company[representative_id]" with "2"
@@ -49,10 +57,10 @@ Scenario: Add a new company
   And I should see "Success!"
 
 
-Scenario: Cannot add a new individual if missing info
+Scenario: Cannot add a new individual if missing occupation
 
   Given I am on the home page
-  When I follow "here"
+  When I press "Add New Person"
   Then I should be on the create_individual page
   When I select "Individual" from "person[type]"
   And I fill in "person[first_name]" with "Jake"
@@ -60,12 +68,35 @@ Scenario: Cannot add a new individual if missing info
   And I press "Create"
   Then I should be on the create_individual page
   And I should see "Error!"
+  
+Scenario: Cannot add a new individual if missing first name
 
+  Given I am on the home page
+  When I press "Add New Person"
+  Then I should be on the create_individual page
+  When I select "Individual" from "person[type]"
+  And I fill in "person[last_name]" with "Tyler"
+  And I fill in "person[occupation]" with "Priceteller"
+  And I press "Create"
+  Then I should be on the create_individual page
+  And I should see "Error!"
+
+Scenario: Cannot add a new individual if missing last name
+
+  Given I am on the home page
+  When I press "Add New Person"
+  Then I should be on the create_individual page
+  When I select "Individual" from "person[type]"
+  And I fill in "person[first_name]" with "Jake"
+  And I fill in "person[occupation]" with "Priceteller"
+  And I press "Create"
+  Then I should be on the create_individual page
+  And I should see "Error!"
 
 Scenario: Cannot add a new company if missing name
 
   Given I am on the home page
-  When I follow "Or click here"
+  When I press "Add New Company"
   Then I should be on the create_company page
   When I select "Portfolio Company" from "company[type]"
   And I fill in "company[representative_role]" with "Cutie"
@@ -76,10 +107,10 @@ Scenario: Cannot add a new company if missing name
   
 
 @wip
-Scenario: Can still add a new company if missing representative information
+Scenario: Cannot add a new company if missing representative name or role information
 
   Given I am on the home page
-  When I follow "Or click here"
+  When I press "Add New Company"
   Then I should be on the create_company page
   When I select "Portfolio" from "company[type]"
   And I fill in "company[name]" with "Cutesy"

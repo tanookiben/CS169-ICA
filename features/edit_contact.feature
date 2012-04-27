@@ -31,6 +31,7 @@ Scenario: pre-selecting and filling in contact information correctly for individ
   And the "person[first_name]" field should contain "Colin"
   And the "person[last_name]" field should contain "Harnes"
   And the "person[occupation]" field should contain "Dreamteller"
+  #add other pre-fillable fields here: email, phone, website, and notes
 
 
 Scenario: pre-selecting and filling in contact information correctly for companies
@@ -43,32 +44,63 @@ Scenario: pre-selecting and filling in contact information correctly for compani
   And the "portfolio_company_name" field should contain "John's Bank"
   And the "portfolio_company_representative_role" field should contain "CEO"
   And the "portfolio_company_representative_id" field should contain "1"
+  #add other pre-fillable fields here: email, phone, website, and notes
   
 @wip
-Scenario: updating individual information
+Scenario: updating individual information - valid update
 
   Given I am on the "Colin Harnes" individual page
   And I follow "Edit"
-  Then I should be on the edit page for "Colin Harnes"
+  Then I should be on the individual edit page for "Colin Harnes"
   And "advisor_type" field should be selected for "Advisor"
   When I fill in "Anothername" for "advisor_first_name"
+  #And I add a new note
+  #And I add a new phone
+  #And I add a new email
+  #And I add a new website
   And press "Update"
-  Then I should be on the "Anothername Harnes" page
+  Then I should be on the "Anothername Harnes" individual page
   And I should see "Anothername Harnes"
  
+@wip 
+Scenario: updating individual information - invalid update
+
+  Give I am on the "Colin Harnes" individual page
+  And I follow "Edit"
+  Then I should be on the individual edit page "Colin Harnes"
+  When I fill in "" for "advisor_first_name"
+  And press "Update"
+  Then I should be on the individual edit page for "Colin Harnes"
+  And I should see "Error! Invalid value!"
+  
 @wip
-Scenario: updating company name
+Scenario: updating company information - valid update
 
   Given I am on the "Faye Future" company page
   And I follow "Edit"
   Then I should be on the company edit page for "Faye Future"
   Then "company[type]" field should be selected for "education"
   When I fill in "education_company_name" with "Not Faye"
+  #And I add a new note
+  #And I add a new phone
+  #And I add a new email
+  #And I add a new website
   And press "Update"
   Then I should be on the "Not Faye Future" company page
   And I should see "Not Faye Future"
   
 
+@wip
+Scenario: updating company information - invalid update
+
+  Given I am on the "Faye Future" company page
+  And I follow "Edit"
+  THen I should be on the company edit page for "Faye Future"
+  When I fill in "education_company_representative_name" with ""
+  And press "Update"
+  Then I should be on the company edit page for "Faye Future"
+  And I should see "Error! Invalid value!"
+  
 Scenario: updating company type
 
   Given I am on the "Harnes Dreaming" company page
