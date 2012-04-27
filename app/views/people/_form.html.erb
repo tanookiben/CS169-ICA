@@ -7,29 +7,24 @@
                             'Board Member' => 'BoardMember',
                             'Advisor' => 'Advisor' } %>
     </div>
-  </div>
 
-  <div class='control-group'>
     <%= p.label :first_name, :class => 'control-label' %>
     <div class='controls'>
       <%= p.text_field :first_name %>
     </div>
-  </div>
 
-  <div class='control-group'>
     <%= p.label :last_name, :class => 'control-label' %>
     <div class='controls'>
       <%= p.text_field :last_name %>
     </div>
-  </div>
 
-  <div class='control-group'>
     <%= p.label :occupation, :class => 'control-label' %>
     <div class='controls'>
       <%= p.text_field :occupation %>
     </div>
   </div>
 
+  <h4>Phone Numbers</h4>
   <%= p.fields_for :phone_numbers do |builder| %>
     <%= render 'shared/phone_number_fields', :f => builder %>
   <% end %>
@@ -37,11 +32,20 @@
     <%= link_to_add_fields "Add Phone Number", p, :phone_numbers %>
   </p>
 
+  <h4>Email Addresses</h4>
   <%= p.fields_for :email_addresses do |builder| %>
     <%= render 'shared/email_address_fields', :f => builder %>
   <% end %>
   <p>
     <%= link_to_add_fields "Add Email Address", p, :email_addresses %>
+  </p>
+
+  <h4>Notes</h4>
+  <%= p.fields_for :notes do |builder| %>
+    <%= render 'shared/note_fields', :f => builder %>
+  <% end %>
+  <p>
+    <%= link_to_add_fields "Add Note", p, :notes %>
   </p>
 
   <div class='control-group'>
