@@ -21,6 +21,9 @@ class Company < ActiveRecord::Base
   end
 
   def representative_name
-    representative.name
+    if representative
+      representative.name
+    end
   end
+
 end

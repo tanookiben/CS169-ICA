@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
 
   has_many :companies, :foreign_key => "representative_id"
 
-  #validates :type, :inclusion => { :in => %w(Individual BoardMember Advisor) }
+  validates :type, :inclusion => { :in => %w(Individual BoardMember Advisor) }
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :occupation, :presence => true
@@ -23,6 +23,19 @@ class Person < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
   alias :name :full_name
+
+  def self.find_by_full_name(name)
+    (Person.find_all_by_first_name(name.split(" ")[0]) & Person.find_all_by_last_name(name.split(" ")[1])).first
+  end
+
+  def self.find_all_by_full_name(name)
+    Person.find_all_by_first_name(name.split(" ")[0]) & Person.find_all_by_last_name(name.split(" ")[1])
+  end
+
+  class << self
+    alias :find_by_name :find_by_full_name
+    alias :find_all_by_name :find_all_by_full_name
+  end
 
   def self.search(search_term)
     if search_term.match(" ")
