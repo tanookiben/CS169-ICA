@@ -10,17 +10,17 @@ module Contact
       # The object needs to be reloaded after changing type for the SQL statement
       # to work properly and not call on the old class.
       updated_contact = self.becomes(self.type.constantize)
-    else
-      updated_contact = self
-    end
-    updated_contact.update_attributes(attributes.except(:type))
-    if updated_contact.invalid?
-      updated_contact.errors.each do |attr, msg|
-        self.errors.add(attr, msg)
+      updated_contact.update_attributes(attributes.except(:type))
+      if updated_contact.invalid?
+        updated_contact.errors.each do |attr, msg|
+          self.errors.add(attr, msg)
+        end
+        false
+      else
+        true
       end
-      false
     else
-      true
+      self.update_attributes(attributes.except(:type))
     end
   end
 end
