@@ -27,10 +27,11 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     if @person.update_with(params[:"#{@person.type.underscore}"])
       flash[:notice] = "#{@person.name} was updated."
+      redirect_to person_path(@person)
     else
-      flash[:error] = "Cannot update #{@person.name}. #{@person.errors.full_messages}"
+      flash[:error] = "Cannot update. #{@person.errors.full_messages}"
+      redirect_to edit_person_path(@person)
     end
-    redirect_to person_path(@person)
   end
 
   def destroy
