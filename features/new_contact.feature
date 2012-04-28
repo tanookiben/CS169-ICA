@@ -19,7 +19,8 @@ Background: all individuals have been added to the database
   | Faye Future        | financial manager   | 4                 | EducationCompany            |
   | Mitchell's Bank    | teller              | 3                 | ProfessionalServiceProvider |
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
-  
+
+@wip  
 Scenario: Add a new individual
 
   Given I am on the home page
@@ -32,7 +33,8 @@ Scenario: Add a new individual
   And I press "Create"
   Then I should be on the "Jake Tyler" individual page
   And I should see "Success!"
-  
+
+@wip  
 Scenario: Add a new company
 
   Given I am on the home page
@@ -45,7 +47,8 @@ Scenario: Add a new company
   And I press "Create"
   Then I should be on the "Cutesy" company page
   And I should see "Success!"
-  
+
+@wip  
 Scenario: Cannot add a new individual if missing info
 
   Given I am on the home page

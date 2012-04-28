@@ -16,7 +16,7 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
     when /^the "(.*)" individual page$/i
-      person_path(Person.find_by_full_name($1).first)
+      person_path(Person.search($1).first)
     when /^the "(.*)" company page$/i
       company_path(Company.search($1).first)
     when /^the edit page for "(.*)"$/i

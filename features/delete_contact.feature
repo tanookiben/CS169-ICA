@@ -20,10 +20,10 @@ Background: all contacts have been added to the database
   | Mitchell's Bank    | teller              | 3                 | ProfessionalServiceProvider |
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
 
-@wip 
+@wip
 Scenario: deleting an individual who is linked to a company - confirm
   Given I am on the "John Smith" individual page
-  When I press "Delete"
+  When I follow "Delete"
   Then I should see an alert "John Smith is the representative for John's Bank.  Are you sure you want to delete individual?"
   When I press "OK"
   Then I should be on the home page
@@ -32,7 +32,7 @@ Scenario: deleting an individual who is linked to a company - confirm
 @wip
 Scenario: deleting an individual who is linked to a company - cancel
   Given I am on the "John Smith" individual page
-  When I press "Delete"
+  When I follow "Delete"
   Then I should see an alert "John Smith is the representative for John's Bank.  Are you sure you want to delete individual?"
   When I press "Cancel"
   Then I should be on the "John Smith" individual page
@@ -40,7 +40,7 @@ Scenario: deleting an individual who is linked to a company - cancel
 @wip
 Scenario: deleting a company without representative information - confirm
   Given I am on the "Faye Future" company page
-  When I press "Delete"
+  When I follow "Delete"
   Then I should see an alert "Are you sure?"
   When I press "OK"
   Then I should be on the home page
@@ -48,7 +48,7 @@ Scenario: deleting a company without representative information - confirm
 @wip  
 Scenario: deleting a company without representative information - cancel
   Given I am on the "Faye Future" company page
-  When I press "Delete"
+  When I follow "Delete"
   Then I should see an alert "Are you sure?"
   When I press "Cancel"
   Then I should be on the "Faye Future" company page
@@ -56,7 +56,7 @@ Scenario: deleting a company without representative information - cancel
 @wip
 Scenario: deleting an individual that is not linked to a company - confirm
   Given I am on the "John Smith" individual page
-  When I press "Delete"
+  When I follow "Delete"
   Then I should see an alert "Are you sure?"
   When I press "OK"
   Then I should be on the home page
@@ -65,7 +65,7 @@ Scenario: deleting an individual that is not linked to a company - confirm
 @wip
 Scenario: deleting an individual who is not linked to a company - cancel
   Given I am on the "John Smith" individual page
-  When I press "Delete"
+  When I follow "Delete"
   Then I should see an alert "Are you sure?"
   When I press "Cancel"
   Then I should be on the "John Smith" individual page
@@ -73,7 +73,7 @@ Scenario: deleting an individual who is not linked to a company - cancel
 @wip
 Scenario: deleting a company that is linked to a representative - confirm and delete rep
   Given I am on the "Mitchell's Bank" company page
-  When I press "Delete"
+  When I follow "Delete"
   Then I should see an alert "Mitchell's Bank has a representative.  Are you sure you want to delete company?"
   When I press "OK"
   Then I should be on the home page
@@ -84,7 +84,7 @@ Scenario: deleting a company that is linked to a representative - confirm and de
 @wip
 Scenario: deleting a company that is linked to a representative - confirm and NOT delete rep
   Given I am on the "Mitchell's Bank" company page
-  When I press "Delete"
+  When I follow "Delete"
   Then I should see an alert "Mitchell's Bank has a representative.  Are you sure you want to delete company?"
   When I press "OK"
   Then I should be on the home page
@@ -95,7 +95,7 @@ Scenario: deleting a company that is linked to a representative - confirm and NO
 @wip
 Scenario: deleting a company that is linked to a representative - cancel
   Given I am on the "Mitchell's Bank" company page
-  When I press "Delete"
+  When I follow "Delete"
   Then I should see an alert "Mitchell's Bank has a representative.  Are you sure you want to delete company?"
   When I press "Cancel"
   Then I should be on the "Mitchell's Bank" company page

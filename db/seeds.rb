@@ -9,7 +9,7 @@ FIRST_NAME = %w(Mike Gregory Tammy William Steve Gerald Bruce Melanie Nathan)
 LAST_NAME = %w(Vermillion Topping Ellinger Sandler Cook Lemaster Desai Kindred Cortes)
 OCCUPATION = %w(Harvest\ Manager Fire\ Sprinkler\ Installer Fish\ and\ Wildlife\ Warden Oxygen\ Therapy\ Technician Bar\ Back Clerk\ Typist Loan\ Teller Radiation\ Engineer Wildlife\ Veternarian)
 
-(0..4).each do
+(0..14).each do
   Individual.create(:first_name => FIRST_NAME.sample, :last_name => LAST_NAME.sample, :occupation => OCCUPATION.sample)
 end
 
@@ -22,9 +22,9 @@ NAME = %w(Translation\ Renderers Helpful\ Sows Key\ Community\ Inc. Total\ Infor
 ROLE = %w(Secretary Warden Manager Supervisor Hiring\ Manager Technician)
 
 (0..1).each do
-  EducationCompany.create(:name => NAME.sample, :representative => Individual.find(1+rand(5)), :representative_role => ROLE.sample)
-  PortfolioCompany.create(:name => NAME.sample, :representative => Individual.find(1+rand(5)), :representative_role => ROLE.sample)
-  ProfessionalServiceProvider.create(:name => NAME.sample, :representative => Individual.find(1+rand(5)), :representative_role => ROLE.sample)
+  EducationCompany.create(:name => NAME.sample, :representative => Individual.find(1+rand(15)), :representative_role => ROLE.sample)
+  PortfolioCompany.create(:name => NAME.sample, :representative => Individual.find(1+rand(15)), :representative_role => ROLE.sample)
+  ProfessionalServiceProvider.create(:name => NAME.sample, :representative => Individual.find(1+rand(15)), :representative_role => ROLE.sample)
 end
 
 LABELS = %w(Mobile Business Other Home)

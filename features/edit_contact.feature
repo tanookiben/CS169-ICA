@@ -20,7 +20,7 @@ Background: all contacts have been added to the database
   | Mitchell's Bank    | teller              | 3                 | ProfessionalServiceProvider |
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
   
-@wip  
+@wip 
 Scenario: pre-selecting and filling in contact information correctly for individuals
 
   Given I am on the "Colin Harnes" individual page
@@ -32,7 +32,7 @@ Scenario: pre-selecting and filling in contact information correctly for individ
   And the "person[last_name]" field should contain "Harnes"
   And the "person[occupation]" field should contain "Dreamteller"
 
-@wip  
+@wip
 Scenario: pre-selecting and filling in contact information correctly for companies
 
   Given I am on the "John's Bank" company page
@@ -44,7 +44,7 @@ Scenario: pre-selecting and filling in contact information correctly for compani
   And the "company[representative_role]" field should contain "CEO"
   And the "company[representative_id]" field should contain "1"
   
-@wip  
+@wip
 Scenario: updating individual information
 
   Given I am on the "Colin Harnes" individual page
@@ -68,7 +68,7 @@ Scenario: updating company name
   Then I should be on the "Not Faye Future" company page
   And I should see "Not Faye Future"
   
-@wip  
+@wip
 Scenario: updating company type
 
   Given I am on the "Harnes Dreaming" company page
