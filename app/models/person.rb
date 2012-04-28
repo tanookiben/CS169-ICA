@@ -1,9 +1,11 @@
 class Person < ActiveRecord::Base
   has_many :phone_numbers, :as => :callable, :dependent => :destroy
   has_many :email_addresses, :as => :emailable, :dependent => :destroy
+  has_many :websites, :as => :linkable, :dependent => :destroy
   has_many :notes, :as => :notable, :dependent => :destroy
   accepts_nested_attributes_for :phone_numbers, :allow_destroy => true
   accepts_nested_attributes_for :email_addresses, :allow_destroy => true
+  accepts_nested_attributes_for :websites, :allow_destroy => true
   accepts_nested_attributes_for :notes, :allow_destroy => true
 
   has_many :companies, :foreign_key => "representative_id"
@@ -14,6 +16,7 @@ class Person < ActiveRecord::Base
   validates :occupation, :presence => true
   validates_associated :phone_numbers
   validates_associated :email_addresses
+  validates_associated :websites
   validates_associated :notes
 
   # Mixes in the update_with method since it is shared between this and Company

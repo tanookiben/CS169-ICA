@@ -46,6 +46,14 @@
     <%= link_to_add_fields "Add Email Address", c, :email_addresses %>
   </p>
 
+  <h4>Website</h4>
+  <%= c.fields_for :websites do |builder| %>
+    <%= render 'shared/website_fields', :f => builder %>
+  <% end %>
+  <p>
+    <%= link_to_add_fields "Add Website", c, :websites %>
+  </p>
+
   <div class='control-group'>
     <div class='controls'>
       <%= c.submit "#{action}" , :class => 'btn' %>

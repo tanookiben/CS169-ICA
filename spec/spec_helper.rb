@@ -13,10 +13,6 @@ FactoryGirl.find_definitions
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-Dir[Rails.root.join("spec/factories/*.rb")].each do |file|
-  require file
-end
-
 RSpec.configure do |config|
   # ## Mock Framework
   #

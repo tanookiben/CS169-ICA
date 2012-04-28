@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423035620) do
+ActiveRecord::Schema.define(:version => 20120427235700) do
 
   create_table "companies", :force => true do |t|
     t.string   "type"
@@ -61,5 +61,16 @@ ActiveRecord::Schema.define(:version => 20120423035620) do
   end
 
   add_index "phone_numbers", ["callable_id"], :name => "index_phone_numbers_on_callable_id"
+
+  create_table "websites", :force => true do |t|
+    t.integer  "linkable_id"
+    t.string   "linkable_type"
+    t.string   "type"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "websites", ["linkable_id"], :name => "index_websites_on_linkable_id"
 
 end
