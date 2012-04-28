@@ -2,6 +2,15 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new
+    if not params[:company][:representative_name].blank?
+      if Person.find_by_name(params[:company][:representative_name])
+        params[:company][:representative_id] = Person.find_by_name(params[:company][:representative_name])
+      end
+    else
+      params[:company][:representative_id] = ""
+    end
+    params[:company].delete(:representative_name)
+raise "#{params[:company][:representative_name]}\n\n#{params}"
     if @company.update_with(params[:company])
       flash[:notice] = "#{@company.name} was created."
       redirect_to company_path(@company)

@@ -1,0 +1,4 @@
+<dt><%= info_type.split("_").each{|word| word.capitalize!}.join(" ") %></dt>
+<% contact.send(info_type).each do |info| %>
+  <dd><%= "#{info.head}: #{info.body}" %></dd>
+<% end %>
