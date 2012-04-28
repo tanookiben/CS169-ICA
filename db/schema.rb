@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423035620) do
+ActiveRecord::Schema.define(:version => 20120428022803) do
 
   create_table "companies", :force => true do |t|
     t.string   "type"
@@ -55,11 +55,19 @@ ActiveRecord::Schema.define(:version => 20120423035620) do
     t.integer  "callable_id"
     t.string   "callable_type"
     t.string   "label"
-    t.integer  "number"
+    t.string   "info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "phone_numbers", ["callable_id"], :name => "index_phone_numbers_on_callable_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

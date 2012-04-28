@@ -1,4 +1,7 @@
 ICA::Application.routes.draw do
+  
+  match '/auth/:provider/callback' => 'sessions#create'
+  match '/signout' => 'sessions#destroy', :as => :signout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -9,7 +12,9 @@ ICA::Application.routes.draw do
 
   match 'contacts' => 'contacts#search', :via => :get, :as => :search
   
-  match 'about' => 'pages#about', :via => :get
+  match 'about' => 'pages#about', :via => :get, :as => :about
+  match 'signin' => 'pages#signin', :via => :get, :as => :signin
+  
   match 'upload/page' => 'upload#page', :via => :get
   match 'upload/upload' => 'upload#upload', :via => :post
 

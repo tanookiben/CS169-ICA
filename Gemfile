@@ -38,6 +38,10 @@ end
 
 gem 'jquery-rails'
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-openid'
+
 gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-will_paginate', '0.0.5'
 

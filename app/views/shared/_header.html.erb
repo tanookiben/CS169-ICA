@@ -9,7 +9,11 @@
       <ul class='nav pull-right'>
         <li><a href='/about'>About</a></li>
         <li class='divider-vertical'></li>
-        <li><a href='#'>Log In</a></li>
+				<% if current_user %>
+					<li><a href='/signout'>Sign Out</a></li>
+				<% else %>
+        	<li><a href='/signin'>Sign In</a></li>
+				<% end %>
       </ul>
     </div><!-- .container -->
   </div><!-- .navbar-inner -->

@@ -9,5 +9,7 @@
   <%= render :partial => 'shared/show_contact_infos', :locals => { :contact => @person, :info_type => 'email_addresses' } %>
   <%#= render :partial => 'show_physical_addresses', :locals => { :person => @person } %>
 </dl>
-<%= link_to 'Edit', edit_person_path(@person), :class => 'btn' %>
-<%= link_to 'Delete', person_path(@person), :method => :delete, :confirm => 'Are you sure?', :class => 'btn' %>
+<% if current_user %>
+	<%= link_to 'Edit', edit_person_path(@person), :class => 'btn' %>
+	<%= link_to 'Delete', person_path(@person), :method => :delete, :confirm => 'Are you sure?', :class => 'btn' %>
+<% end %>
