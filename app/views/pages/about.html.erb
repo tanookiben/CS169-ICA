@@ -1,0 +1,17 @@
+<h1> About Here </h1>
+
+<h3>Important things to keep in mind about the Upload/Import functionality</h3>
+
+Choosing to import contact from a CSV file requires certain elements within the CSV file itself:
+<ol>
+	<li>all imported contacts will be imported as Individuals.</li>
+	<li>contacts are limited to two email addresses and two phone numbers (more can be manually added after they have been created).</li>
+	<li>headers for the imported file must follow these constraints:</li>
+		<ol>
+			<li>a "Given Name" (aka a first name) field must be present</li>
+			<li>a "Family Name" (aka a last name) field must be present</li>
+			<li>email fields must be of the format "E-Mail 1 - Type"/"E-Mail 1 - Value" or "E-Mail 2 - Type"/"E-Mail 2 - Value" and must start with 1 before 2 (e.g. if "E-Mail 2 - *" is present and no "E-Mail 1 - *" is present, then no email addresses will be added)</li>
+			<li>email type fields must be one of the following: Home, Business, Mobile, Other</li>
+			<li>similar constraints to email addresses also apply to phone numbers (e.g. "Phone 1 - Type"/"Phone 1 - Value" and "Phone 2 - Type"/"Phone 2 - Value")</li>
+		</ol>
+</ol>

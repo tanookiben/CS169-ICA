@@ -8,6 +8,10 @@ ICA::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   match 'contacts' => 'contacts#search', :via => :get, :as => :search
+  
+  match 'about' => 'pages#about', :via => :get
+  match 'upload/page' => 'upload#page', :via => :get
+  match 'upload/upload' => 'upload#upload', :via => :post
 
   # Needed for STI inheritance to be properly mapped by the form because
   # convention of form_for will look for the route of the specific model
