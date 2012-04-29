@@ -40,7 +40,7 @@
     <%= link_to_add_fields "Add Email Address", p, :email_addresses %>
   </p>
 
-  <h4>Website</h4>
+  <h4>Websites</h4>
   <%= p.fields_for :websites do |builder| %>
     <%= render 'shared/website_fields', :f => builder %>
   <% end %>

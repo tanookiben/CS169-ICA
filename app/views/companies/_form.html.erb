@@ -23,8 +23,6 @@
     </div>
   </div>
 
-  <%= c.hidden_field :representative_id %>
-
   <div class='control-group'>
     <%= c.label :representative_role, :class => 'control-label' %>
     <div class='controls'>
@@ -32,6 +30,7 @@
     </div>
   </div>
 
+  <h4>Phone Numbers</h4>
   <%= c.fields_for :phone_numbers do |builder| %>
     <%= render 'shared/phone_number_fields', :f => builder %>
   <% end %>
@@ -39,6 +38,7 @@
     <%= link_to_add_fields "Add Phone Number", c, :phone_numbers %>
   </p>
 
+  <h4>Email Addresses</h4>
   <%= c.fields_for :email_addresses do |builder| %>
     <%= render 'shared/email_address_fields', :f => builder %>
   <% end %>
@@ -46,12 +46,20 @@
     <%= link_to_add_fields "Add Email Address", c, :email_addresses %>
   </p>
 
-  <h4>Website</h4>
+  <h4>Websites</h4>
   <%= c.fields_for :websites do |builder| %>
     <%= render 'shared/website_fields', :f => builder %>
   <% end %>
   <p>
     <%= link_to_add_fields "Add Website", c, :websites %>
+  </p>
+
+  <h4>Notes</h4>
+  <%= c.fields_for :notes do |builder| %>
+    <%= render 'shared/note_fields', :f => builder %>
+  <% end %>
+  <p>
+    <%= link_to_add_fields "Add Note", c, :notes %>
   </p>
 
   <div class='control-group'>

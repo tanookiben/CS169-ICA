@@ -2,15 +2,7 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new
-    if not params[:company][:representative_name].blank?
-      if Person.find_by_name(params[:company][:representative_name])
-        params[:company][:representative_id] = Person.find_by_name(params[:company][:representative_name])
-      end
-    else
-      params[:company][:representative_id] = ""
-    end
-    params[:company].delete(:representative_name)
-raise "#{params[:company][:representative_name]}\n\n#{params}"
+    params[:company] = params[:company].merge({:representative_id => Person.search(params[:company][:representative_name]).first.id}).except(:representative_name)
     if @company.update_with(params[:company])
       flash[:notice] = "#{@company.name} was created."
       redirect_to company_path(@company)
@@ -34,6 +26,7 @@ raise "#{params[:company][:representative_name]}\n\n#{params}"
 
   def update
     @company = Company.find(params[:id])
+    params[:"#{@company.type.underscore}"] = params[:"#{@company.type.underscore}"].merge({:representative_id => Person.search(params[:"#{@company.type.underscore}"][:representative_name]).first.id}).except(:representative_name)
     if @company.update_with(params[:"#{@company.type.underscore}"])
       flash[:notice] = "#{@company.name} was updated."
     else
