@@ -1,9 +1,3 @@
 <h1>Welcome!</h1>
 <p>Search for contacts by name above.</p>
 <%= render :partial => "tables" %>
-<% if current_user %>
-	<p><%= link_to 'Click here', new_person_path %> to create a new person</p>
-	<p><%= link_to 'Click here', new_company_path %> to create a new company </p>
-	<p><%= link_to 'Click here', upload_page_path %> to upload a CSV file with contact information</p>
-<% end %>
-<p>
