@@ -32,7 +32,7 @@
 
   <h4>Phone Numbers</h4>
   <%= c.fields_for :phone_numbers do |builder| %>
-    <%= render 'shared/phone_number_fields', :f => builder %>
+    <%= render 'shared/contact_info_fields/phone_number_fields', :f => builder %>
   <% end %>
   <p>
     <%= link_to_add_fields "Add Phone Number", c, :phone_numbers %>
@@ -40,7 +40,7 @@
 
   <h4>Email Addresses</h4>
   <%= c.fields_for :email_addresses do |builder| %>
-    <%= render 'shared/email_address_fields', :f => builder %>
+    <%= render 'shared/contact_info_fields/email_address_fields', :f => builder %>
   <% end %>
   <p>
     <%= link_to_add_fields "Add Email Address", c, :email_addresses %>
@@ -48,7 +48,7 @@
 
   <h4>Websites</h4>
   <%= c.fields_for :websites do |builder| %>
-    <%= render 'shared/website_fields', :f => builder %>
+    <%= render 'shared/contact_info_fields/website_fields', :f => builder %>
   <% end %>
   <p>
     <%= link_to_add_fields "Add Website", c, :websites %>
@@ -56,7 +56,7 @@
 
   <h4>Notes</h4>
   <%= c.fields_for :notes do |builder| %>
-    <%= render 'shared/note_fields', :f => builder %>
+    <%= render 'shared/contact_info_fields/note_fields', :f => builder %>
   <% end %>
   <p>
     <%= link_to_add_fields "Add Note", c, :notes %>

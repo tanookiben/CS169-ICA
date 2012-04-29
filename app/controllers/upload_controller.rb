@@ -1,8 +1,8 @@
 class UploadController < ApplicationController
-  
-  def page
+
+  def index
   end
-  
+
   def upload
     require 'csv'
     # @ben.update_with({ :first_name => "ben", :last_name => "hsieh", :type => "Individual", :occupation => "job" })
@@ -127,8 +127,8 @@ class UploadController < ApplicationController
       @newperson = Person.new()
       @newperson.update_with(params[:person])
     end
-    
+
     redirect_to search_path
   end
-  
+
 end
