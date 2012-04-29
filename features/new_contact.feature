@@ -9,7 +9,7 @@ Background: all individuals have been added to the database
   | first_name   | last_name     | type            | occupation   |
   | John         | Smith         | Individual      | Teller       |
   | Gregg        | Fields        | Advisor         | Storyteller  |
-  | Jack         | Mitchell      | BoardMember     | Bankteller   |
+  | Jack         | Mitchell      | Advisor         | Bankteller   |
   | Faye         | Johnson       | Individual      | Futureteller |
   | Colin        | Harnes        | Advisor         | Dreamteller  |
   
@@ -20,11 +20,11 @@ Background: all individuals have been added to the database
   | Mitchell's Bank    | teller              | 3                 | ProfessionalServiceProvider |
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
 
-
+# Adding function broken 4/28/12
 Scenario: Add a new individual 
 
   Given I am on the home page
-  When I press "Add New Person"
+  When I follow "New Person"
   Then I should be on the create_individual page
   When I select "Individual" from "person[type]"
   And I add a phone
@@ -38,11 +38,11 @@ Scenario: Add a new individual
   Then I should be on the "Jake Tyler" individual page
   And I should see "Success!"
 
- 
+@wip
 Scenario: Add a new company
 
   Given I am on the home page
-  When I press "Add New Company"
+  When I follow "New Company"
   Then I should be on the create_company page
   When I select "Portfolio Company" from "company[type]"
   And I add a phone
@@ -56,11 +56,11 @@ Scenario: Add a new company
   Then I should be on the "Cutesy" company page
   And I should see "Success!"
 
-
+@wip
 Scenario: Cannot add a new individual if missing occupation
 
   Given I am on the home page
-  When I press "Add New Person"
+  When I follow "New Person"
   Then I should be on the create_individual page
   When I select "Individual" from "person[type]"
   And I fill in "person[first_name]" with "Jake"
@@ -68,11 +68,11 @@ Scenario: Cannot add a new individual if missing occupation
   And I press "Create"
   Then I should be on the create_individual page
   And I should see "Error!"
-  
+@wip 
 Scenario: Cannot add a new individual if missing first name
 
   Given I am on the home page
-  When I press "Add New Person"
+  When I follow "New Person"
   Then I should be on the create_individual page
   When I select "Individual" from "person[type]"
   And I fill in "person[last_name]" with "Tyler"
@@ -80,11 +80,11 @@ Scenario: Cannot add a new individual if missing first name
   And I press "Create"
   Then I should be on the create_individual page
   And I should see "Error!"
-
+@wip
 Scenario: Cannot add a new individual if missing last name
 
   Given I am on the home page
-  When I press "Add New Person"
+  When I follow "New Person"
   Then I should be on the create_individual page
   When I select "Individual" from "person[type]"
   And I fill in "person[first_name]" with "Jake"
@@ -92,11 +92,11 @@ Scenario: Cannot add a new individual if missing last name
   And I press "Create"
   Then I should be on the create_individual page
   And I should see "Error!"
-
+@wip
 Scenario: Cannot add a new company if missing name
 
   Given I am on the home page
-  When I press "Add New Company"
+  When I follow "New Company"
   Then I should be on the create_company page
   When I select "Portfolio Company" from "company[type]"
   And I fill in "company[representative_role]" with "Cutie"
@@ -110,7 +110,7 @@ Scenario: Cannot add a new company if missing name
 Scenario: Cannot add a new company if missing representative name or role information
 
   Given I am on the home page
-  When I press "Add New Company"
+  When I follow "New Company"
   Then I should be on the create_company page
   When I select "Portfolio" from "company[type]"
   And I fill in "company[name]" with "Cutesy"

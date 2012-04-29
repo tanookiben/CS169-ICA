@@ -27,6 +27,10 @@ module NavigationHelpers
       new_person_path
     when /^the create_company page$/
       new_company_path
+    when /^the twitter callback page/
+      'localhost:3000/auth/twitter/callback'
+    when /^the twitter auth page/
+      'localhost:3000/auth/twitter'
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

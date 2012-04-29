@@ -21,6 +21,8 @@ Background: all contacts have been added to the database
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
   
 
+  And I am signed in
+  
 Scenario: pre-selecting and filling in contact information correctly for individuals
 
   Given I am on the "Colin Harnes" individual page
@@ -95,7 +97,7 @@ Scenario: updating company information - invalid update
 
   Given I am on the "Faye Future" company page
   And I follow "Edit"
-  THen I should be on the company edit page for "Faye Future"
+  Then I should be on the company edit page for "Faye Future"
   When I fill in "education_company_representative_name" with ""
   And press "Update"
   Then I should be on the company edit page for "Faye Future"

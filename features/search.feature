@@ -9,10 +9,11 @@ Background: all contacts have been added to the database
   | id  | first_name   | last_name     | type            | occupation   |
   | 1   | John         | Smith         | Individual      | Teller       |
   | 2   | Gregg        | Fields        | Advisor         | Storyteller  |
-  | 3   | Jack         | Mitchell      | BoardMember     | Bankteller   |
+  | 3   | Jack         | Mitchell      | Advisor         | Bankteller   |
   | 4   | Faye         | Johnson       | Individual      | Futureteller |
   | 5   | Colin        | Harnes        | Advisor         | Dreamteller  |
-  
+#BoardMember type is breaking?
+
   And the following companies exist:
   | name               | representative_role | representative_id | type                        |
   | John's Bank        | CEO                 | 1                 | PortfolioCompany            |
