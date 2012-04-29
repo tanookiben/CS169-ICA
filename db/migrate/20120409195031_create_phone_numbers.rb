@@ -3,7 +3,7 @@ class CreatePhoneNumbers < ActiveRecord::Migration
     create_table :phone_numbers do |t|
       t.references :callable, :polymorphic => true
       t.string :label
-      t.string :info
+      t.string :number
 
       t.timestamps
     end

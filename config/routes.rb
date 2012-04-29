@@ -1,5 +1,8 @@
 ICA::Application.routes.draw do
 
+  match '/auth/:provider/callback' => 'sessions#create'
+  match '/signout' => 'sessions#destroy', :as => :signout
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -8,6 +11,11 @@ ICA::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   match 'contacts' => 'contacts#search', :via => :get, :as => :search
+
+  match 'about' => 'application#about', :via => :get, :as => :about
+
+  match 'upload/page' => 'upload#page', :via => :get
+  match 'upload/upload' => 'upload#upload', :via => :post
 
   # Needed for STI inheritance to be properly mapped by the form because
   # convention of form_for will look for the route of the specific model
@@ -62,7 +70,7 @@ ICA::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'application#index'
+   root :to => 'contacts#index'
 
   # See how all your routes lay out with "rake routes"
 
