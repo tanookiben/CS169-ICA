@@ -1,4 +1,4 @@
-<%= form_for company, :html => {:class => 'form-horizontal'} do |c| %>
+<%= form_for @company, :html => {:class => 'form-horizontal'} do |c| %>
 
   <div class='control-group'>
     <%= c.label :type, :class => 'control-label' %>
@@ -19,7 +19,7 @@
   <div class='control-group'>
     <%= c.label :representative_name, :class => 'control-label' %>
     <div class='controls'>
-      <%= c.text_field :representative_name, :"data-provide" => "typeahead", :"data-source" => "#{%w(foo bar)}" %>
+      <%= c.text_field :representative_name, :"data-provide" => "typeahead", :"data-source" => "#{@representatives}", :autocomplete => "off" %>
     </div>
   </div>
 
