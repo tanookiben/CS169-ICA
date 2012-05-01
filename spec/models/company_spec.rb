@@ -5,7 +5,10 @@ describe Company do
     @count = Company.count
     @ultimate = { :first_name => "Super", :last_name => "Baller", :occupation => "Badass", :type => "Individual" }
     @ultimateCEO = Person.new(@ultimate)
-    @appleattr = { :name => "TestApple", :representative => @ultimateCEO, :representative_role => "Ultimate Master", :type => "ProfessionalServiceProvider" }
+    @appleattr = { :name => "TestApple",
+                                :representative => @ultimateCEO,
+                                :representative_role => "Ultimate Master",
+                                :type => "ProfessionalServiceProvider" }
     @msoftattr = { :name => "TestMicrosoft",
                                 :representative => @ultimateCEO,
                                 :representative_role => "Greatest Leader",
@@ -24,6 +27,13 @@ describe Company do
   
   it "should successfully create companies" do
     Company.count.should == 3+@count
+  end
+  
+  describe "representative name" do
+    it "should successfully return the representative's name" do
+      @repname = @apple.representative_name
+      @repname.should == "Super Baller"
+    end
   end
   
   describe "search" do

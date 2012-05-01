@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe ContactsController do
+  describe 'index' do
+    it "should be successful" do
+      get :index
+      response.should be_successful
+    end
+  end
+  
   describe 'search' do
     before(:each) do
       @ind1 = FactoryGirl.create(:individual)

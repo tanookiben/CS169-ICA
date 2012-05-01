@@ -40,6 +40,20 @@ describe Person do
   end
   
   describe "search names" do
+    describe "search full name first" do
+      it "should return successful matches for a suitable name query" do
+        @results = Person.find_by_full_name("TestBen Hsieh")
+        @results.should == @ben
+      end
+    end
+    
+    describe "search full name all" do
+      it "should return successful matches for a suitable name query" do
+        @results = Person.find_all_by_full_name("TestBen Hsieh")
+        @results.should == [@ben]
+      end
+    end
+    
     it "should return successful matches for a suitable name query" do
       @results = Person.search("TestBen Hsieh")
       @results.should == [@ben]
