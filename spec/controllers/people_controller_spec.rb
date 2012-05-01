@@ -1,13 +1,6 @@
 require 'spec_helper'
 
 describe PeopleController do
-
-  describe "GET 'index'" do
-    it "should be successful" do
-      get 'index'
-      response.should be_success
-    end
-  end
   
   describe "POST 'create'" do
     describe "failure" do
@@ -104,7 +97,7 @@ describe PeopleController do
       
       it "should redirect to the person's page" do
         put :update, :id => @person, :individual => @newben
-        response.should redirect_to(person_path(@person))
+        response.should redirect_to(edit_person_path(@person))
       end
     end
       
