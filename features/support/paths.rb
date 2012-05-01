@@ -27,6 +27,8 @@ module NavigationHelpers
       new_person_path
     when /^the create_company page$/
       new_company_path
+    when /^the signin page/
+      '/#'
     when /^the twitter callback page/
       'localhost:3000/auth/twitter/callback'
     when /^the twitter auth page/

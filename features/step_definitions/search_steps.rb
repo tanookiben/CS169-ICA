@@ -51,14 +51,16 @@ Then /I should see the complete global contacts list/ do
   
 end
 
-And /^I am signed in$/ do
-  step %Q{I am on the twitter auth page}
-  step %Q{I am on the twitter callback page}
-end 
-
-When /^Twitter authorizes me$/ do
-  visit twitter_callback_path
-end
+#And /^I am signed in$/ do
+#  step %Q{I am on the homepage}
+#  step %Q{I go to the signin page}
+#  step %Q{I follow "Twitter"}
+#  step %Q{I fill in "terriyeh" for "Username"}
+#  step %Q{I fill in "askr0131" for "Password"}
+#  step %Q{I press "Sign In"}
+#  step %Q{I am on the homepage}
+#  step %Q{I see "Success"}
+#end
 
 Then /I should see all records that contain "(.*)"/ do |term|
   @filtered_list = Person.where('first_name LIKE ?', '#{term}')

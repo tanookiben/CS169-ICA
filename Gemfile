@@ -17,6 +17,7 @@ end
 group :test do
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
+  gem 'fakeweb', '>= 1.2.5'
 end
 
 group :test, :development do

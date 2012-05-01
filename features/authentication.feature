@@ -25,10 +25,7 @@ Scenario: ICA admins can log in with valid username and password
   Given I am on the homepage
   Then I should see "Sign In"
   When I follow "Sign In"
-  Then I follow "Twitter"
-  And I fill in "Username" with "terriyeh"
-  And I fill in "Password" with "askr0131"
-  And I press "Sign In"
+  And Twitter authorizes me
   Then I should be on the home page
   
 @wip
