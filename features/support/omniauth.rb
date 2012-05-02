@@ -1,4 +1,4 @@
-Before('@omniauth_test') do
+Before('@omniauth_valid_user') do
   OmniAuth.config.test_mode = true
 
   # the symbol passed to mock_auth is the same as the name of the provider set up in the initializer
@@ -9,6 +9,21 @@ Before('@omniauth_test') do
   }
 end
 
-After('@omniauth_test') do
+After('@omniauth_valid_user') do
+  OmniAuth.config.test_mode = false
+end
+
+Before('@omniauth_invalid_user') do
+  OmniAuth.config.test_mode = true
+
+  # the symbol passed to mock_auth is the same as the name of the provider set up in the initializer
+  OmniAuth.config.mock_auth[:twitter] = {
+      "provider"=>"twitter",
+      "uid"=>"http://xxxx.com/openid?id=118181138998978630963",
+      "user_info"=>{"email"=>"test@xxxx.com", "first_name"=>"Mr. Wrong", "last_name"=>"User", "name"=>"Test User"}
+  }
+end
+
+After('@omniauth_invalid_user') do
   OmniAuth.config.test_mode = false
 end
