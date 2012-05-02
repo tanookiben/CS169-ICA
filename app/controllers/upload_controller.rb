@@ -50,12 +50,12 @@ class UploadController < ApplicationController
               params = { :person => {
                 :first_name => fname, :last_name => lname, :type => "Individual", :occupation => "TBD",
                 :phone_numbers_attributes => [
-                  { :label => phone1type, :info => phone1value },
-                  { :label => phone2type, :info => phone2value }
+                  { :label => phone1type, :number => phone1value },
+                  { :label => phone2type, :number => phone2value }
                 ],
                 :email_addresses_attributes => [
-                  { :label => email1type, :info => email1value },
-                  { :label => email2type, :info => email2value }
+                  { :label => email1type, :address => email1value },
+                  { :label => email2type, :address => email2value }
                 ]
               }}
             else
@@ -63,11 +63,11 @@ class UploadController < ApplicationController
               params = { :person => {
                 :first_name => fname, :last_name => lname, :type => "Individual", :occupation => "TBD",
                 :phone_numbers_attributes => [
-                  { :label => phone1type, :info => phone1value }
+                  { :label => phone1type, :number => phone1value }
                 ],
                 :email_addresses_attributes => [
-                  { :label => email1type, :info => email1value },
-                  { :label => email2type, :info => email2value }
+                  { :label => email1type, :address => email1value },
+                  { :label => email2type, :address => email2value }
                 ]
               }}
             end
@@ -76,8 +76,8 @@ class UploadController < ApplicationController
             params = { :person => {
               :first_name => fname, :last_name => lname, :type => "Individual", :occupation => "TBD",
               :email_addresses_attributes => [
-                { :label => email1type, :info => email1value },
-                { :label => email2type, :info => email2value }
+                { :label => email1type, :address => email1value },
+                { :label => email2type, :address => email2value }
               ]
             }}
           end
@@ -88,11 +88,11 @@ class UploadController < ApplicationController
               params = { :person => {
                 :first_name => fname, :last_name => lname, :type => "Individual", :occupation => "TBD",
                 :phone_numbers_attributes => [
-                  { :label => phone1type, :info => phone1value },
-                  { :label => phone2type, :info => phone2value }
+                  { :label => phone1type, :number => phone1value },
+                  { :label => phone2type, :number => phone2value }
                 ],
                 :email_addresses_attributes => [
-                  { :label => email1type, :info => email1value },
+                  { :label => email1type, :address => email1value },
                 ]
               }}
             else
@@ -100,10 +100,10 @@ class UploadController < ApplicationController
               params = { :person => {
                 :first_name => fname, :last_name => lname, :type => "Individual", :occupation => "TBD",
                 :phone_numbers_attributes => [
-                  { :label => phone1type, :info => phone1value }
+                  { :label => phone1type, :number => phone1value }
                 ],
                 :email_addresses_attributes => [
-                  { :label => email1type, :info => email1value }
+                  { :label => email1type, :address => email1value }
                 ]
               }}
             end
@@ -112,7 +112,7 @@ class UploadController < ApplicationController
             params = { :person => {
               :first_name => fname, :last_name => lname, :type => "Individual", :occupation => "TBD",
               :email_addresses_attributes => [
-                { :label => email1type, :info => email1value }
+                { :label => email1type, :address => email1value }
               ]
             }}
           end
