@@ -2,7 +2,7 @@ class CreateWebsites < ActiveRecord::Migration
   def change
     create_table :websites do |t|
       t.references :linkable, :polymorphic => true
-      t.string :type
+      t.string :domain
       t.string :url
 
       t.timestamps
