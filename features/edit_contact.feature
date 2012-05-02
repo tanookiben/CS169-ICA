@@ -21,8 +21,9 @@ Background: all contacts have been added to the database
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
   
 
-  And I am signed in
-  
+
+
+@omniauth_valid_user  
 Scenario: pre-selecting and filling in contact information correctly for individuals
 
   Given I am on the "Colin Harnes" individual page
@@ -35,7 +36,7 @@ Scenario: pre-selecting and filling in contact information correctly for individ
   And the "person[occupation]" field should contain "Dreamteller"
   #add other pre-fillable fields here: email, phone, website, and notes
 
-
+@omniauth_valid_user
 Scenario: pre-selecting and filling in contact information correctly for companies
 
   Given I am on the "John's Bank" company page

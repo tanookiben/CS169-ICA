@@ -20,7 +20,7 @@ Background: all individuals have been added to the database
   | Mitchell's Bank    | teller              | 3                 | ProfessionalServiceProvider |
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
 
-# Adding function broken 4/28/12
+@omniauth_valid_user
 Scenario: Add a new individual 
 
   Given I am on the home page
