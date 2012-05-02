@@ -1,9 +1,9 @@
 class Website < ActiveRecord::Base
   belongs_to :linkable, :polymorphic => true
-  validates :type, :inclusion => { :in => %w(Business Personal LinkedIn Other) }
+  validates :domain, :inclusion => { :in => %w(Business Personal LinkedIn Other) }
 
   def head
-    type
+    domain
   end
 
   def body

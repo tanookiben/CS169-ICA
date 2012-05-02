@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20120428022803) do
   create_table "websites", :force => true do |t|
     t.integer  "linkable_id"
     t.string   "linkable_type"
-    t.string   "type"
+    t.string   "domain"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
