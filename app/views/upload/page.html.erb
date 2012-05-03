@@ -1,8 +1,0 @@
-<h1>Upload CSV</h1>
-
-<%= form_for :file_upload, :url => { :action => 'upload' }, :html => { :multipart => true } do |f| %>
-	<div class="row">
-		<label for="file" class="span1">Upload:</label><%= f.file_field :importfile %>
-		<%= f.submit 'Upload' %>
-	</div>
-<% end %>

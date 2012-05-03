@@ -14,8 +14,8 @@ ICA::Application.routes.draw do
 
   match 'about' => 'application#about', :via => :get, :as => :about
 
-  match 'upload/page' => 'upload#page', :via => :get
-  match 'upload/upload' => 'upload#upload', :via => :post
+  match 'upload' => 'upload#index', :via => :get, :as => :upload
+  match 'upload' => 'upload#upload', :via => :post
 
   # Needed for STI inheritance to be properly mapped by the form because
   # convention of form_for will look for the route of the specific model

@@ -5,11 +5,13 @@ class CompaniesController < ApplicationController
     if params[:company][:representative_name].blank?
       flash[:error] = "Please include a representative."
       redirect_to new_company_path and return
+    elsif Person.search(params[:company][:representative_name]).blank?
+      flash[:error] = "Please name a valid representative."
+      redirect_to new_company_path and return
     end
     params[:company] = params[:company].merge({:representative_id => Person.search(params[:company][:representative_name]).first.id}).except(:representative_name)
     if @company.update_with(params[:company])
-      flash[:notice] = "#{@company.name} was created."
-      redirect_to company_path(@company)
+      redirect_to company_path(@company), :notice => "#{@company.name} was created."
     else 
       flash[:error] = "Cannot create new company. #{@company.errors.full_messages}"
       redirect_to new_company_path
@@ -35,11 +37,13 @@ class CompaniesController < ApplicationController
     if params[:"#{@company.type.underscore}"][:representative_name].blank?
       flash[:error] = "Please include a representative."
       redirect_to edit_company_path(@company) and return
+    elsif Person.search(params[:"#{@company.type.underscore}"][:representative_name]).blank?
+      flash[:error] = "Please name a valid representative."
+      redirect_to edit_company_path(@company) and return
     end
     params[:"#{@company.type.underscore}"] = params[:"#{@company.type.underscore}"].merge({:representative_id => Person.search(params[:"#{@company.type.underscore}"][:representative_name]).first.id}).except(:representative_name)
     if @company.update_with(params[:"#{@company.type.underscore}"])
-      flash[:notice] = "#{@company.name} was updated."
-      redirect_to company_path(@company)
+      redirect_to company_path(@company), :notice => "#{@company.name} was updated."
     else
       flash[:error] = "Cannot update #{@company.name}. #{@company.errors.full_messages}"
       redirect_to edit_company_path(@company)
@@ -49,8 +53,7 @@ class CompaniesController < ApplicationController
   def destroy
     @company = Company.find(params[:id])
     @company.destroy
-    flash[:notice] = "Company '#{@company.name}' was deleted."
-    redirect_to root_path
+    redirect_to root_path, :notice => "Company '#{@company.name}' was deleted."
   end
 
 end

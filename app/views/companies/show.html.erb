@@ -1,4 +1,4 @@
-<h2><%= @company.type %></h2>
+<h2><%= @company.type.underscore.split("_").each{ |word| word.capitalize! }.join(" ") %></h2>
 <h1><%= @company.name %></h1>
 <h3><%= "#{@company.representative_role}: " %><%= link_to @company.representative.full_name, person_path(@company.representative), :method => :get %></h3>
 <dl>

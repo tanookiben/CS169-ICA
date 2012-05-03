@@ -1,2 +1,6 @@
 <h1>Edit <%= @company.name %></h1>
-<%= render :partial => "form", :locals => { :action => 'Update' } %>
+<% if current_user %>
+  <%= render :partial => "form", :locals => { :action => 'Update' } %>
+<% else %>
+  <%= render :partial => "shared/login_error" %>
+<% end %>

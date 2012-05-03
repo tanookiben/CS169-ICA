@@ -1,2 +1,6 @@
 <h1>Create a new person</h1>
-<%= render :partial => "form", :locals => { :action => 'Create' } %>
+<% if current_user %>
+  <%= render :partial => "form", :locals => { :action => 'Create' } %>
+<% else %>
+  <%= render :partial => "shared/login_error" %>
+<% end %>
