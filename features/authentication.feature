@@ -28,7 +28,7 @@ Scenario: ICA admins can log in with valid username and password
   Then I follow "Twitter"
   Then I should be on the home page
 
-@omniauth_invalid_user
+@wip
 Scenario: non admins should not be able to log in
   Given I am on the homepage
   Then I should see "Sign In"

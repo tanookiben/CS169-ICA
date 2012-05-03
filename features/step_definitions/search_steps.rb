@@ -82,4 +82,8 @@ Then /^"([^"]*)" field should be selected for "(.*)"$/ do |field, value|
   page.has_xpath?("//select[@id = '#{field}']/option[text() = '#{value}']")
 end
 
+And /^I confirm popup$/ do
+  page.driver.browser.switch_to.alert.accept
+end
+
 

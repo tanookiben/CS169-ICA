@@ -19,13 +19,13 @@ Background: all contacts have been added to the database
   | Faye Future        | financial manager   | 4                 | EducationCompany            |
   | Mitchell's Bank    | teller              | 3                 | ProfessionalServiceProvider |
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
+  
 
 @wip
 Scenario: deleting an individual who is linked to a company - confirm
   Given I am on the "John Smith" individual page
   When I follow "Delete"
-  Then I should see an alert "John Smith is the representative for John's Bank.  Are you sure you want to delete individual?"
-  When I press "OK"
+  And I confirm popup
   Then I should be on the home page
   And I should see "Success!"
   
