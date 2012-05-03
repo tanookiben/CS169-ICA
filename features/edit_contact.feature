@@ -20,63 +20,101 @@ Background: all contacts have been added to the database
   | Mitchell's Bank    | teller              | 3                 | ProfessionalServiceProvider |
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
   
-@wip 
+  Given I am on the homepage
+  Then I should see "Sign In"
+  When I follow "Sign In"
+  Then I follow "Twitter"
+  Then I should be on the home page
+  
+@omniauth_valid_user  
 Scenario: pre-selecting and filling in contact information correctly for individuals
-
   Given I am on the "Colin Harnes" individual page
   And I follow "Edit"
   Then I should be on the edit page for "Colin Harnes"
   And I should see "Colin Harnes"
   And "advisor_type" field should be selected for "Advisor"
-  And the "person[first_name]" field should contain "Colin"
-  And the "person[last_name]" field should contain "Harnes"
-  And the "person[occupation]" field should contain "Dreamteller"
+  And the "advisor[first_name]" field should contain "Colin"
+  And the "advisor[last_name]" field should contain "Harnes"
+  And the "advisor[occupation]" field should contain "Dreamteller"
+  #add other pre-fillable fields here: email, phone, website, and notes
 
-@wip
+@omniauth_valid_user
 Scenario: pre-selecting and filling in contact information correctly for companies
 
   Given I am on the "John's Bank" company page
   And I follow "Edit"
-  Then I should be on the edit page for "John's Bank"
+  Then I should be on the company edit page for "John's Bank"
   And I should see "John's Bank"
   And "company[type]" field should be selected for "Portfolio Company"
-  And the "company[name]" field should contain "John's Bank"
-  And the "company[representative_role]" field should contain "CEO"
-  And the "company[representative_id]" field should contain "1"
+  And the "portfolio_company_name" field should contain "John's Bank"
+  And the "portfolio_company_representative_role" field should contain "CEO"
+  And the "portfolio_company_representative_name" field should contain "John Smith"
+  #add other pre-fillable fields here: email, phone, website, and notes
   
-@wip
-Scenario: updating individual information
+@omniauth_valid_user  
+Scenario: updating individual information - valid update
 
   Given I am on the "Colin Harnes" individual page
   And I follow "Edit"
   Then I should be on the edit page for "Colin Harnes"
   And "advisor_type" field should be selected for "Advisor"
-  When I fill in "person[first_name]" with "Anothername"
+  When I fill in "Anothername" for "advisor_first_name"
+  #And I add a new note
+  #And I add a new phone
+  #And I add a new email
+  #And I add a new website
   And press "Update"
-  Then I should be on the "Anothername Harnes" page
+  Then I should be on the "Anothername Harnes" individual page
   And I should see "Anothername Harnes"
- 
-@wip  
-Scenario: updating company name
+
+@omniauth_valid_user 
+Scenario: updating individual information - invalid update
+
+  Given I am on the "Colin Harnes" individual page
+  And I follow "Edit"
+  Then I should be on the edit page for "Colin Harnes"
+  When I fill in "" for "advisor_first_name"
+  And press "Update"
+  Then I should be on the edit page for "Colin Harnes"
+  And I should see "Error!"
+  
+@omniauth_valid_user
+Scenario: updating company information - valid update
 
   Given I am on the "Faye Future" company page
   And I follow "Edit"
-  Then I should be on the edit page for "Faye Future"
-  And "company[type]" field should be selected for "education"
-  When I fill in "company[name]" with "Not Faye"
+  Then I should be on the company edit page for "Faye Future"
+  Then "company[type]" field should be selected for "education"
+  When I fill in "education_company_representative_role" with "Another Role"
+  #And I add a new note
+  #And I add a new phone
+  #And I add a new email
+  #And I add a new website
   And press "Update"
-  Then I should be on the "Not Faye Future" company page
-  And I should see "Not Faye Future"
+  Then I should be on the "Faye Future" company page
+  And I should see "Another Role"
   
-@wip
+
+@omniauth_valid_user
+Scenario: updating company information - invalid update
+
+  Given I am on the "Faye Future" company page
+  And I follow "Edit"
+  Then I should be on the company edit page for "Faye Future"
+  When I fill in "education_company_representative_name" with ""
+  And press "Update"
+  Then I should be on the company edit page for "Faye Future"
+  And I should see "Error!"
+
+@omniauth_valid_user   
 Scenario: updating company type
 
   Given I am on the "Harnes Dreaming" company page
   And I follow "Edit"
-  Then I should be on the edit page for "Harnes Dreaming"
-  And "company[type]" field should be selected for "education"
-  When I select "Portfolio Company" for "company[type]"
+  Then I should be on the company edit page for "Harnes Dreaming"
+  Then "company[type]" field should be selected for "Education Company"
+  When I select "Portfolio Company" from "education_company[type]"
   And press "Update"
   Then I should be on the "Harnes Dreaming" company page
-  And "company[type]" field should be seleced for "Portfolio Company"
+  Then "company[type]" field should be selected for "Portfolio Company"
   
