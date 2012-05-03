@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20120428022803) do
     t.integer  "emailable_id"
     t.string   "emailable_type"
     t.string   "label"
-    t.string   "info"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20120428022803) do
     t.integer  "callable_id"
     t.string   "callable_type"
     t.string   "label"
-    t.string   "info"
+    t.string   "number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20120428022803) do
   create_table "websites", :force => true do |t|
     t.integer  "linkable_id"
     t.string   "linkable_type"
-    t.string   "type"
+    t.string   "domain"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
