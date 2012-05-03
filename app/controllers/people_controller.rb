@@ -36,6 +36,10 @@ class PeopleController < ApplicationController
 
   def destroy
     @person = Person.find(params[:id])
+    if not @person.companies.blank?
+      flash[:error] = "Person '#{@person.name}' cannot be deleted. Representative for #{@person.companies}. Please unlink before trying to delete."
+      redirect_to person_path(@person) and return
+    end
     @person.destroy
     flash[:notice] = "Person '#{@person.name}' was deleted."
     redirect_to root_path

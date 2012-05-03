@@ -9,7 +9,7 @@
 <body>
 
 <%= render "shared/header" %>
-<div class='content' style='padding-top:40px'>
+<div class='container' style='padding-top:40px'>
   <% if flash[:notice] %>
     <%= render :partial => 'shared/success', :locals => { :notice => flash[:notice] } %>
   <% end %>

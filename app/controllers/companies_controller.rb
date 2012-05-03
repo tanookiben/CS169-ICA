@@ -5,6 +5,9 @@ class CompaniesController < ApplicationController
     if params[:company][:representative_name].blank?
       flash[:error] = "Please include a representative."
       redirect_to new_company_path and return
+    elsif Person.search(params[:company][:representative_name]).blank?
+      flash[:error] = "Please name a valid representative."
+      redirect_to new_company_path and return
     end
     params[:company] = params[:company].merge({:representative_id => Person.search(params[:company][:representative_name]).first.id}).except(:representative_name)
     if @company.update_with(params[:company])
@@ -34,6 +37,9 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     if params[:"#{@company.type.underscore}"][:representative_name].blank?
       flash[:error] = "Please include a representative."
+      redirect_to edit_company_path(@company) and return
+    elsif Person.search(params[:"#{@company.type.underscore}"][:representative_name]).blank?
+      flash[:error] = "Please name a valid representative."
       redirect_to edit_company_path(@company) and return
     end
     params[:"#{@company.type.underscore}"] = params[:"#{@company.type.underscore}"].merge({:representative_id => Person.search(params[:"#{@company.type.underscore}"][:representative_name]).first.id}).except(:representative_name)
