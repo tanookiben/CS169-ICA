@@ -5,7 +5,7 @@ Before('@omniauth_valid_user') do
   OmniAuth.config.mock_auth[:twitter] = {
       "provider"=>"twitter",
       "uid"=>"http://xxxx.com/openid?id=118181138998978630963",
-      "user_info"=>{"email"=>"test@xxxx.com", "first_name"=>"Test", "last_name"=>"User", "name"=>"Test User"}
+      "info"=>{"email"=>"test@gmail.com", "first_name"=>"Gregg", "last_name"=>"Fields", "name"=>"Gregg Fields"}
   }
 end
 
@@ -20,7 +20,7 @@ Before('@omniauth_invalid_user') do
   OmniAuth.config.mock_auth[:twitter] = {
       "provider"=>"twitter",
       "uid"=>"http://xxxx.com/openid?id=118181138998978630963",
-      "user_info"=>{"email"=>"test@xxxx.com", "first_name"=>"Mr. Wrong", "last_name"=>"User", "name"=>"Test User"}
+      "info"=>{"email"=>"test@xxxx.com", "first_name"=>"Mr. Wrong", "last_name"=>"User", "name"=>"Test User"}
   }
 end
 

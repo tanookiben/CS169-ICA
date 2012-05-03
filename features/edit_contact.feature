@@ -21,11 +21,15 @@ Background: all contacts have been added to the database
   | Harnes Dreamimg    | bookie              | 5                 | EducationCompany            |
   
 
-
-
 @omniauth_valid_user  
 Scenario: pre-selecting and filling in contact information correctly for individuals
 
+  Given I am on the homepage
+  Then I should see "Sign In"
+  When I follow "Sign In"
+  Then I follow "Twitter"
+  Then I should be on the home page
+  
   Given I am on the "Colin Harnes" individual page
   And I follow "Edit"
   Then I should be on the edit page for "Colin Harnes"
@@ -103,7 +107,8 @@ Scenario: updating company information - invalid update
   And press "Update"
   Then I should be on the company edit page for "Faye Future"
   And I should see "Error! Invalid value!"
-  
+
+@omniauth_valid_user   
 Scenario: updating company type
 
   Given I am on the "Harnes Dreaming" company page
